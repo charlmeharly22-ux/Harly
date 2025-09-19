@@ -1,0 +1,3144 @@
+/* ----------------- sim vle chanje style lis yo se nan A propos poum ale ------------------ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;  
+}
+
+body {
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+  padding-top: 80px; /* ajoute espace pou header sticky */
+}
+
+/* ------------------ HEADER ------------------ */
+
+header {
+  background: linear-gradient(to right, #111, #333);
+  color: #fff;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; /* Fè header sticky */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  
+}
+
+/* -------- LOGO BAR -------- */
+
+.logo-ico {
+  display: flex;             /* pou icon + tèks sou menm liy */
+  align-items: center;       /* alinye vètikal */
+  gap: 12px;                 /* espas ant icon ak tèks */
+}
+
+.img_log {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;        /* fè li total rond */
+  object-fit: cover;         /* pou imaj toujou byen chaje */
+  border: 2px solid #d4af37; /* optional: border gold pou plis élégance */
+  transition: transform 0.3s ease;
+}
+
+.img_log:hover {
+  transform: scale(1.1);     /* ti efè hover pou pro look */
+}
+
+.logo {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;       /* evite li kase sou liy diferan */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover {
+  color: #d4af37;            /* ti hover efekt pou logo */
+  transform: scale(1.05);
+}
+
+/* Nav Links */
+.menu-s {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Style pou tout lyen */
+.menu-s a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  font-weight: 500;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.menu-s a.active {
+  text-decoration: underline;
+  text-decoration-color: white;
+  text-decoration-thickness: 2.5px; /* epesè souliyen an */
+  text-underline-offset: 10px; /* distans souliyen an ak tèks la */
+  color: white;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header-actions .btn-reserver {
+  margin-right: 15px;
+}
+
+.btn-se-connecter {
+  background: #d4af37;
+  color: #111;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-se-connecter:hover {
+  background: #b9972f;
+  color: #fff;
+}
+
+/* Bouton meni, mete sou bò goch */
+#menu-toggle {
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #ffffff;
+  cursor: pointer;
+  display: none;
+  position: relative;
+  left: 0;
+  margin-left: 0;
+}
+
+/* Gwo ekran (orijinal nav) */
+nav ul {
+  display: flex;
+  justify-content: flex-end; /* kole sou bò dwat */
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 15px;
+  position: relative;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 0;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: width 0.3s;
+  margin-top: 5px;
+}
+
+nav a:hover {
+  color: #d4af37;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.btn-reserver {
+  background: #d4af37;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.btn-reserver:hover {
+  background: #b9972f;
+  color: #fff;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+
+/* ------------------ RESPONSIVE NAV (1449px epi pi piti) ------------------ */
+@media (max-width: 1449px) {
+  nav {
+    position: fixed;
+    top: 0;
+    left: -260px;         /* nav kache default */
+    width: 260px;
+    height: 100%;
+    background: #222;
+    padding-top: 100px;   /* plis espas pou pa kole ak header */
+    display: flex;
+    flex-direction: column;
+    z-index: 1050;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+  }
+
+  nav.open {
+    left: 0;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;   /* kolòn lè nav louvri */
+    align-items: flex-start;  /* kole sou bò gòch */
+    justify-content: flex-start;
+    gap: 20px;
+    padding-left: 20px;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+  }
+
+  nav li {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Lyen menu */
+  .menu-s a {
+    display: inline-block;          /* pran dimansyon selon tèks */
+    width: auto;                     /* adapte selon kantite tèks */
+    padding: 0.5rem 0.8rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 5px;             /* ti rounded pou hover */
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  }
+
+  .menu-s a.active {
+    text-decoration: underline;
+    text-decoration-color: #fff;
+    text-decoration-thickness: 2.5px;
+    text-underline-offset: 10px;
+    color: #fff;
+  }
+
+  .menu-s a:hover {
+    background-color: rgba(212, 175, 55, 0.2); /* hover semi-transparent */
+    color: #d4af37;
+    transform: translateY(-2px);
+  }
+
+  /* Bouton toggle */
+  #menu-toggle {
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 22px;
+    z-index: 1100;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .logo-ico {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* espas ant imaj favicon ak tèks logo */
+    margin-left: 30px;
+  }
+
+  .logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+
+  .btn-reserver {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 5px;
+  }
+}
+
+
+/* ------------------ Pour le profile ------------------ 
+  .user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-pic {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.user-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.logout-btn {
+  background: #d9534f;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+  */
+
+/* ------------------ Accueil ------------------ */
+/* ------------------ SLIDER ------------------ */
+
+#slider {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+}
+
+#slider .slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#slider .slide.active {
+  display: block;
+  animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+#slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Bouton prev/next toujou wonn */
+#slider .prev,
+#slider .next {
+  width: 50px;              /* menm lajè */
+  height: 50px;             /* menm wotè */
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 2em;
+  background: rgba(0,0,0,0.4);
+  padding: 0px;
+  font-size: 24px;
+  border-radius: 50%; /* bouton wonn */
+  transition: background 0.3s ease;
+}
+
+#slider .prev:hover,
+#slider .next:hover {
+  background: rgba(212, 175, 55, 0.8);
+}
+
+#slider .prev {
+  left: 10px;
+}
+
+#slider .next {
+  right: 10px;
+}
+
+#slider .caption {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  color: #fff;
+  font-size: 2em;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+/* ------------------------------
+   SECTIONS PRINCIPALES
+------------------------------- */
+
+.home-intro {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f5f5f5;
+}
+
+.home-intro h1 {
+  font-size: 42px;
+  color: #222;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.home-intro p {
+  font-size: 18px;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.home-intro .btn-principal {
+  background: #eab308;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.home-intro .btn-principal:hover {
+  background: #c89c58;
+}
+
+
+/* ------------------------------
+   HIGHLIGHTS
+------------------------------- */
+
+.home-highlights {
+  padding: 60px 20px;
+  background: #f5f5f5;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.home-highlights .highlight {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  margin-bottom: 40px;
+  transition: transform 0.3s;
+}
+
+.home-highlights .highlight:hover {
+  transform: translateY(-8px);
+}
+
+.home-highlights img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.home-highlights h3 {
+  font-size: 24px;
+  color: #222;
+  margin: 20px 0 10px;
+}
+
+.home-highlights p {
+  color: #555;
+  font-size: 16px;
+  margin: 0 15px 20px;
+}
+
+.home-highlights .btn {
+  display: inline-block;
+  background: #eab308;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.home-highlights .btn:hover {
+  background: #c89c58;
+}
+
+
+/* Layout responsive (3 colonnes sur desktop, 1 colonne mobile) */
+@media (min-width: 768px) {
+  .home-highlights {
+    display: flex;
+    gap: 30px;
+  }
+  .home-highlights .highlight {
+    flex: 1;
+    margin-bottom: 0;
+  }
+}
+
+
+/* ------------------------------
+   OFFRES SPÉCIALES
+------------------------------- */
+
+.home-offres {
+  padding: 60px 20px;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.home-offres h2 {
+  font-size: 36px;
+  color: #222;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.home-offres .offres {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.home-offres .offre {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.home-offres .offre:hover {
+  transform: translateY(-5px);
+}
+
+.home-offres .offre h4 {
+  font-size: 24px;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.home-offres .offre p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.home-offres .offre a {
+  color: #eab308;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.home-offres .offre a:hover {
+  color: #c89c58;
+}
+
+/* Responsive : 2 colonnes offres sur tablette */
+@media (min-width: 768px) {
+  .home-offres .offres {
+    flex-direction: row;
+  }
+  .home-offres .offre {
+    flex: 1;
+  }
+}
+
+/* ------------------ pati icon nan akey ------------------ */
+
+    .hotel-services_1 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px 10px;
+        max-width: 1200px;
+        margin: auto;
+        margin-top: 75px;
+    }
+
+    .hotel-service {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: #fff;
+        border-radius: 8px;
+        padding: 15px 18px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        flex: 1 1 250px;
+        min-width: 230px;
+        max-width: 300px;
+        transition: all 0.3s ease;
+        border: 1px solid #f1f1f1;
+    }
+
+    .hotel-service:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transform: translateY(-3px);
+    }
+
+    .hotel-icon {
+        font-size: 28px;
+        color: #f4b400; /* Jaune thème */
+        flex-shrink: 0;
+    }
+
+    .hotel-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hotel-text h4 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #000;
+    }
+
+    .hotel-text p {
+        margin: 2px 0 0;
+        font-size: 0.85rem;
+        color: #555;
+    }
+
+    @media (max-width: 768px) {
+        .hotel-service {
+            max-width: 100%;
+        }
+    }
+/* ------------------ Témoignages ------------------ */
+
+.home-testimonials {
+  background: #f5f5f5;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.home-testimonials h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.testimonials-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.testimonial {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 25px 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 350px;
+  flex: 1 1 300px;
+}
+
+.testimonial p {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.testimonial h4 {
+  font-weight: bold;
+  color: #222;
+}
+
+/* Formulaire témoignage */
+.testimonial-form-container {
+  background: #fff;
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.testimonial-form-container h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.testimonial-form label {
+  display: block;
+  text-align: left;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #444;
+}
+
+.testimonial-form input,
+.testimonial-form textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.testimonial-form button {
+  margin-top: 20px;
+  background: #222;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.testimonial-form button:hover {
+  background: #444;
+}
+
+
+/* ------------------ Fin Accueil ------------------ */
+
+/* ------------------ SERVICES ------------------ */
+/* ------------------ Pour la page servis ------------------ */
+
+main {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.services-section {
+  margin-bottom: 50px;
+}
+
+.services-section h2 {
+  color: #2c3e50;
+  font-size: 2em;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e67e22;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.service-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.service-card .images-row {
+  display: flex;             /* Mete yo sou menm liy */
+  gap: 10px;                 /* Espas ant imaj yo */
+}
+
+.service-card .images-row img {
+  width: 50%;                /* Chak imaj pran 50% nan espas disponib */
+  object-fit: cover;         /* Kenbe pwopòsyon imaj yo */
+  border-radius: 8px;        /* Optional: ti bordure radius pou bèl aparans */
+}
+
+
+.service-card ul {
+  padding: 20px;
+  list-style-type: disc;
+}
+
+.service-card ul li {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+
+/* ------------------ CHAMBRES PRO ------------------ */
+
+#chambres {
+  background: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.chambres-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.chambres-intro {
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  color: #666;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.chambres-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.chambre-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.chambre-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 45px rgba(212,175,55,0.5);
+}
+
+.chambre-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.chambre-card h3 {
+  font-size: 24px;
+  color: #d4af37;
+  margin: 20px;
+  margin-bottom: 10px;
+}
+
+.chambre-card p {
+  color: #444;
+  font-size: 16px;
+  margin: 0 20px 20px 20px;
+  flex-grow: 1;
+}
+
+.chambre-card span {
+  display: block;
+  color: #d4af37;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 20px 20px 20px;
+}
+
+.btn-chambre {
+  display: block;
+  text-align: center;
+  background: linear-gradient(45deg, #d4af37, #c59d2f);
+  color: #fff;
+  text-decoration: none;
+  margin: 0 20px 20px 20px;
+  padding: 12px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-chambre:hover {
+  background: linear-gradient(45deg, #c59d2f, #a68220);
+}
+
+
+/* ------------------ Contact ------------------ */
+
+
+#contact {
+  padding: 40px 20px;
+  background: #ffffff;
+}
+
+#contact h1 {
+  font-size: 2.4em;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+#contact p {
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+  color: #555;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.contact-infos, .contact-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px #0002;
+  flex: 1 1 320px;
+}
+
+.contact-infos h2, .contact-form h2 {
+  margin-top: 0;
+  color: #b9904f;
+  font-size: 1.5em;
+}
+
+.contact-infos ul {
+  list-style: none;
+  padding: 0;
+}
+
+.Netoyer_Lien{
+text-decoration: underline;
+color: #000000;
+}
+
+.contact-infos li {
+  margin: 12px 0;
+  font-size: 1em;
+  color: #333;
+}
+
+.contact-infos li i {
+  margin-right: 8px;
+  color: #b9904f;
+}
+
+.contact-social {
+  margin-top: 20px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.contact-social i{
+padding-top: 30px;
+}
+
+.contact-social a {
+  margin-right: 12px;
+  color: #b9904f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-social a:hover {
+  color: #222;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+  font-size: 1em;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form button.btn {
+  background: #b9904f;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  
+}
+
+.contact-form button.btn:hover {
+  background: #9b7d3e;
+}
+
+.rgpd {
+  font-size: 0.85em;
+  color: #777;
+  margin-top: 55px;
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+/* Equipe dirigeante */
+.contact-team {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.contact-team h2 {
+  color: #b9904f;
+  font-size: 1.8em;
+  margin-bottom: 30px;
+}
+
+.contact-team a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-team a:hover {
+  text-decoration: underline;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.member {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  width: 240px;
+  box-shadow: 0 4px 18px #0002;
+}
+
+.member img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.member h3 {
+  margin: 10px 0 5px;
+  color: #222;
+}
+
+.member p {
+  margin: 0;
+  color: #777;
+}
+
+
+
+/* FAQ SECTION */
+.faq-section {
+  
+  margin-top: 50px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px #0002;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.faq-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #c49b16;
+  text-align: center;
+}
+
+.faq-item {
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+
+.faq-question {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question:hover {
+  color: #c49b16;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  padding: 0 0;
+  color: #444;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding: 0.5rem 0;
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+
+
+/* Horaires */
+.contact-hours {
+  margin-top: 50px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px #0002;
+}
+
+.contact-hours h2 {
+  color: #b9904f;
+  margin-top: 0;
+}
+
+.contact-hours ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-hours li {
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* Map */
+.hotel-map {
+  margin-top: 50px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 18px #0002;
+}
+
+.hotel-map h2 {
+  margin-top: 0;
+  color: #b9904f;
+  font-size: 1.5em;
+  margin-bottom: 16px;
+}
+
+
+/* ------------------ Fin Contact ------------------ */
+
+
+/* ------------------ POUR LA PAGE DE GALERIE ------------------ */
+
+
+/* ============================
+        GALERIE PLATINUM
+============================ */
+
+/* ----------------- BRAND TOKENS (EASY TO TUNE) ----------------- */
+:root{
+  --brand-bg:#0f1115;             /* dark charcoal/navy */
+  --brand-card:#16171a;           /* card bg */
+  --brand-ink:#ffffff;            /* light text on dark */
+  --brand-ink-dim:#bfbfbf;        /* dim text */
+  --brand-ink-mid:#e6e6e6;        /* mid text */
+  --brand-accent:#d4af37;         /* gold */
+  --brand-accent-2:#c59d4f;       /* warm gold */
+  --brand-surface:#ffffff;        /* white blocks */
+  --brand-shadow:rgba(0,0,0,0.12);
+}
+
+/* ----------------- HERO CAROUSEL ----------------- */
+.hero-bg {
+  position: relative; width: 100%; height: 92vh; 
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  transition: background-image 0.7s ease-in-out;
+  overflow: hidden;
+}
+.hero-bg::before {
+  content: "";
+  position: absolute; inset:0;
+  background: linear-gradient(to right, rgba(0,0,0,0.7) 20%, rgba(0,0,0,0.12) 70%);
+  z-index: 1;
+}
+.main-content {
+  position: relative; z-index:2;
+  height:100%; display:flex; justify-content:space-between; align-items:flex-end;
+  padding: 40px 70px;
+}
+.left-hero {
+  max-width: 560px; color:#fff; display:flex; flex-direction:column; gap:20px; min-width:300px;
+  transition: opacity 0.6s ease-in-out, transform 0.5s ease; transform: translateY(-60px);
+}
+.left-hero.hidden { opacity:0; transform:translateY(-20px); }
+.left-hero .subtitle { font-size:16px; font-weight:600; opacity:0.95; letter-spacing:2px; text-transform:uppercase; color:var(--brand-ink-mid); }
+.left-hero .title { font-size:56px; font-weight:800; line-height:1.02; letter-spacing:1.5px; color:#fff; text-shadow:0 4px 18px rgba(0,0,0,0.5); text-transform:uppercase; }
+.left-hero .desc { font-size:16px; line-height:1.6; color:var(--brand-ink-mid); max-width:560px; }
+.left-hero .dot {
+  width: 22px; height: 22px; border-radius: 50%; background: var(--brand-accent);
+  margin-top: 26px; box-shadow: 0 0 18px rgba(212,175,55,0.55);
+}
+
+/* ----------------- CAROUSEL ----------------- */
+/* ----------------- CAROUSEL BASE ----------------- */
+.carousel-cards-wrapper {
+  position: absolute;
+  right: 70px;
+  bottom: 110px;
+  padding-bottom: 15px;
+  z-index: 20;
+
+  display: flex;
+  align-items: flex-end;
+
+  /* Lajè limite pou fè bout card yo parèt (slide hint) */
+  max-width: calc(170px * 4.5 + 15px * 4);
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+.carousel-cards-row {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.carousel-cards-row::-webkit-scrollbar { display: none; }
+.carousel-card {
+  position: relative; flex-shrink: 0; width: 100%; max-width: 600px; height: 300px; border-radius: 16px; overflow: hidden; background: #222; box-shadow: 0 6px 18px rgba(0,0,0,0.22); cursor: pointer; transition: transform 0.32s cubic-bezier(.38,1.45,.64,1), box-shadow 0.32s, border-color 0.22s; opacity: 0.88; border: 2px solid transparent; scroll-snap-align: start; flex: 0 0 170px;
+}
+.carousel-card.selected { transform: scale(1.08) translateY(-13px); z-index: 14; box-shadow: 0 18px 45px rgba(0,0,0,0.36); border: 3px solid #fff; opacity: 1; }
+.carousel-card:hover { transform: scale(1.05) translateY(-10px); box-shadow: 0 12px 30px rgba(0,0,0,0.3); opacity: 1; }
+.carousel-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.carousel-card:hover img { transform: scale(1.06); }
+.card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 80%, transparent); }
+.card-text { position: absolute; bottom: 0; padding: 14px 12px; color: #fff; z-index: 2; }
+.card-title { font-size: 16px; font-weight: 800; line-height: 1.15; text-transform: uppercase; text-shadow: 0 3px 12px #000; margin-bottom: 6px; }
+.card-desc { font-size: 12px; font-weight: 600; opacity: 0.85; }
+
+/* ----------------- PAGINATION DOTS ----------------- */
+.page-indicator { display: flex; gap: 8px; }
+.page-indicator button { width: 14px; height: 14px; border-radius: 50%; border: none; background-color: rgba(255,255,255,0.35); cursor: pointer; transition: 0.3s; }
+.page-indicator button.active { background-color: var(--brand-accent); transform: scale(1.05); }
+.page-indicator button:hover { transform: scale(1.2); }
+
+/* Nouvo controls zone */
+.controls-zone { position: absolute; right: 70px; bottom: 68px; display: flex; align-items: center; gap: 18px; z-index: 15; }
+.nav-buttons { display: flex; gap: 12px; }
+.glass-btn { padding: 8px 14px; font-size: 15px; color: #fff; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 8px; backdrop-filter: blur(10px); cursor: pointer; transition: all 0.3s ease; }
+.glass-btn:hover { background: rgba(255, 255, 255, 0.3); transform: translateY(-2px); }
+
+/* ----------------- SITE HEADER ----------------- */
+.header1 { background: linear-gradient(90deg, #111, #3b3c3d); color: white; padding: 1.25rem 1rem; text-align:center; font-size:1.6rem; font-weight:800; letter-spacing:1px; border-bottom:3px solid var(--brand-accent); }
+
+@media (min-width: 1200px) and (max-width: 1509px) {
+  .main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 36px 50px;
+    gap: 20px;
+  }
+  .left-hero {
+    max-width: 480px;
+    flex: 0 0 480px;
+    width: auto;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .carousel-cards-wrapper {
+    position: relative;
+    max-width: calc(100vw - 520px);
+    flex: 1 1 auto;
+    margin-bottom: 90px;
+    gap: 20px;
+    display: flex;
+    justify-content: flex-end;
+    right: auto;
+    bottom: auto;
+  }
+  .carousel-card {
+    flex: 0 0 230px;
+    max-width: 200px;
+    width: 180px;
+    height: 250px;
+  }
+}
+
+
+@media (min-width: 950px) and (max-width: 1200px) {
+  .main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Sa ap kite espas ant tèks ak kat */
+    align-items: flex-end;
+    padding: 36px 30px;
+    gap: 20px;
+  }
+
+  .left-hero {
+    max-width: 480px; /* augmente max-width pou plis espas */
+    flex: 0 0 480px; /* fixe yon lajè baz pou li pa vin piti */
+    width: auto;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .carousel-cards-wrapper {
+    position: relative; /* chanje soti nan absolute pou pa konpwomèt lefèt ke li monte sou left-hero */
+    max-width: calc(100vw - 520px); /* 100vw minus espas left-hero + gap */
+    flex: 1 1 auto;
+    margin-bottom: 90px;
+    gap: 20px;
+    display: flex;
+    justify-content: flex-end;
+    right: auto; /* retire valè absoli */
+    bottom: auto; /* retire valè absoli */
+  }
+
+  .carousel-card {
+    flex: 0 0 220px;
+    max-width: 200px;
+    width: 180px;
+    height: 250px;
+  }
+}
+
+/* Kenbe rès règleman k ap aplike deja non chanje */
+
+
+/* ✅ Ti tablet ak aparèy (<950px) */
+@media (max-width: 949px) {
+  .carousel-cards-wrapper {
+    position: relative;
+    right: 0; bottom: 90px; 
+    max-width: calc(220px * 2 + 20px);
+    gap: 90px;
+    margin-bottom: 0;
+    flex: 1 1 240px;
+    justify-content: flex-end;
+  }
+  .carousel-card {
+    flex: 0 0 200px;
+    max-width: 130px;
+    width: 100px;
+    height: 180px;
+  }
+
+  .left-hero {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+  }
+
+  .left-hero .title {
+    font-size: 1.6rem;
+  }
+
+  .left-hero .desc {
+    font-size: 0.9rem;
+  }
+}
+
+/* ✅ Phone (<600px) */
+@media (max-width: 600px) {
+  .carousel-cards-wrapper {
+    display: none; /* toujou kache sou phone */
+  }
+
+  .left-hero {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+  }
+
+  .left-hero .title {
+    font-size: 1.6rem;
+  }
+
+  .left-hero .desc {
+    font-size: 0.9rem;
+  }
+
+  .controls-zone {
+    display: none;
+  }
+
+}
+
+/* ✅ Ti telefòn modèn (≤430px) */
+@media (max-width: 430px) {
+  .main-content {
+    padding: 20px 15px;
+    gap: 25px;
+  }
+
+  .left-hero {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    
+  }
+
+  .left-hero .title {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  .left-hero .desc {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .carousel-cards-wrapper {
+    display: none; /* kache sou ti telefòn pou pa chaje ekran an */
+  }
+
+}
+
+/* ✅ iPhone XR / 11 (414px) */
+@media (max-width: 414px) {
+  .left-hero .title {
+    font-size: 1.3rem;
+    line-height: 1.3;
+  }
+  .left-hero .desc {
+    font-size: 0.85rem;
+  }
+
+
+}
+
+/* ✅ Ti telefòn modèn (≤375px) → iPhone SE, android piti */
+@media (max-width: 375px) {
+  .left-hero .title {
+    font-size: 1.2rem;
+  }
+  .left-hero .desc {
+    font-size: 0.8rem;
+  }
+
+  .carousel-cards-wrapper {
+    display: none; /* kache sou ti telefòn pou pa chaje ekran an */
+  }
+
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; /* evite scroll horizontal sou iPhone */
+}
+
+
+/* ----------------- LAYOUT / CONTAINERS ----------------- */
+
+  h2 { text-align:center; margin:30px 0;}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center; /* santre ranje yo */
+  padding: 0 20px; /* ti espas andedan galeri */
+  max-width: 1200px; /* limite lajè total galeri a */
+  margin: 0 auto; /* santre galeri a nan mitan ekran an */
+}
+
+/* Animasyon galeri */
+.gallery-item {
+  flex: 1 1 calc(33% - 30px);
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInUp 0.5s forwards;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* efè lonbraj */
+}
+
+.gallery-item.show {
+  opacity: 1;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05); /* ti efè zoom sou hover */
+}
+
+.gallery-item img, .gallery-item video { width:100%; height:auto; display:block; border-bottom:1px solid #ddd; }
+.gallery-item p { margin:10px; font-weight:bold; }
+.pagination { text-align:center; margin:20px 0; }
+.pagination button { margin:0 5px; padding:8px 12px; border:none; background:#000000; color:white; border-radius:5px; cursor:pointer; transition:0.3s; }
+.pagination button:disabled { background:#000000; cursor:not-allowed; }
+.pagination button.active { background:#dfae0f; }
+.pagination button:hover:not(:disabled):not(.active) { background:#dfae0f; }
+
+/* pour la galeri */
+@media(max-width:1024px){ 
+  .gallery-item { 
+    flex:1 1 calc(50% - 20px);
+  } 
+}
+@media(max-width:600px){ 
+  .gallery-item { 
+    flex:1 1 100%;
+  } 
+}
+/* adapte sou telefòn */
+@media(max-width:600px){
+  #lightboxPrev, #lightboxNext {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  #lightboxPrev { left: 10px; }
+  #lightboxNext { right: 10px; }
+}
+
+/* Lightbox Styles */
+/* Lightbox Background */
+#lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+/* Lightbox Background */
+#lightboxOverlay {
+  display: none;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#lightboxContent {
+  max-width: 95%;
+  max-height: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* trè enpòtan pou flèch yo swiv kontni an */
+}
+
+#lightboxContent img,
+#lightboxContent video {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  object-fit: contain;
+}
+
+#lightboxCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: left;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
+#lightboxClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+#lightboxPrev, #lightboxNext {
+  position: absolute;
+  top: 50%;     /* toujou nan mitan imaj/videyo a */
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  
+  width: 50px;   /* lajè fix */
+  height: 50px;  /* wotè fix */
+  display: flex; /* pou santre flèch la */
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0,0,0,0.6); /* pi fonse pou plis kontrast */
+  border-radius: 50%; /* fè yo wonn nèt */
+  user-select: none;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4); /* efè lonbraj */
+  z-index: 2000; /* pou yo toujou devan */
+}
+
+#lightboxPrev:hover, #lightboxNext:hover {
+  background: rgba(255,255,255,0.8); /* sou hover yo vin klere */
+  color: black;
+  transform: translateY(-50%) scale(1.1); /* ti anim zoom */
+}
+
+/* toujou kole ak bor kontni an */
+#lightboxPrev { left: 15px; }  /* mete deyò bò gòch kontni an */
+#lightboxNext { right: 15px; } /* mete deyò bò dwat kontni an */
+
+
+/* ----------------- OTHER SITE SECTIONS ----------------- */
+
+.featured-article { 
+  display:flex; 
+  flex-wrap:wrap; 
+  max-width:1150px; 
+  margin:3rem auto; 
+  gap:1.5rem; 
+  background:white; 
+  border-radius:15px; 
+  overflow:hidden; 
+  box-shadow:0 10px 30px rgba(0,0,0,0.08); 
+
+}
+
+.featured-article img {
+  flex: 1 1 50%;      /* kenbe pati fleksib */
+  width: 100%;        /* pou imaj pran tout lajè kontènè l */
+  height: auto;       /* pou bon rapò aspè */
+  max-height: 480px;  /* limite wotè, men pa depase */
+  object-fit: cover;  /* kenbe bon kouvèti imaj la */
+  border-radius: 15px; /* mete border radius nan bò gòch pou style */
+}
+
+.featured-article .text { 
+  flex:1 1 50%; 
+  padding:2rem; 
+  display:flex; 
+  flex-direction:column; 
+  justify-content:center;
+}
+
+.featured-article h2 { 
+  margin-bottom:1rem; 
+  font-size:2rem; 
+  font-weight:700; 
+  color:#0f172a; 
+}
+
+.featured-article p { 
+  font-size:1.1rem; 
+  line-height:1.7; 
+  margin-bottom:1rem; 
+  color:#444; 
+}
+
+.featured-article .author { 
+  display:flex; 
+  align-items:center; 
+  margin-top:1.5rem; 
+}
+
+.featured-article .author img { 
+  width:60px; 
+  border-radius:50%; 
+  margin-right:0.9rem; 
+  box-shadow:0 4px 10px rgba(0,0,0,0.2); 
+}
+
+
+/* Newsletter / footer */
+.newsletter { 
+  position: relative;
+  background: url("hotel.PNG") no-repeat center center / cover; 
+  color: white; 
+  padding: 3.5rem 1.5rem; 
+  margin-top: 2rem; 
+  border-top: 4px solid var(--brand-accent); 
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Overlay ak opacité */
+.newsletter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55); /* plis fonse pou fè tèks klè */
+  z-index: 1;
+} 
+
+.newsletter-content { 
+  position: relative;
+  z-index: 2; /* fè tèks ak bouton parèt sou overlay */
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 2.5rem; 
+  max-width: 1100px; 
+  margin: auto; 
+  align-items: center; 
+  justify-content: center;
+  text-align: left;
+}
+
+.newsletter-content img { 
+  width: 100%; 
+  max-width: 360px; 
+  border-radius: 18px; 
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  transition: transform 0.4s ease;
+}
+
+.newsletter-content img:hover {
+  transform: scale(1.05); /* zoom ti kras lè pase souri */
+}
+
+.newsletter-content div { 
+  flex: 1; 
+  min-width: 320px;
+}
+
+.newsletter h2 { 
+  font-size: 2.4rem; 
+  margin-bottom: 1rem; 
+  font-weight: 800; 
+  color: #f5d76e; /* gold plis lumineux */
+  text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+}
+
+.newsletter p { 
+  font-size: 1.25rem; 
+  margin-bottom: 1.8rem; 
+  line-height: 1.7; 
+  color: #f1f1f1; 
+  text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+}
+
+.newsletter a { 
+  text-decoration: none; 
+}
+
+.newsletter-btn { 
+  display: inline-block;
+  background-color: #d4af37; 
+  color: #0b0b0b; 
+  font-size: 1.15rem; 
+  font-weight: 700; 
+  padding: 1rem 2.8rem; 
+  border-radius: 40px; 
+  transition: all 0.3s ease; 
+  box-shadow: 0 6px 18px rgba(212,175,55,0.4);
+}
+
+.newsletter-btn:hover { 
+  background-color: #b8962f; 
+  color: white; 
+  box-shadow: 0 10px 25px rgba(212,175,55,0.6); 
+  transform: translateY(-4px);
+}
+
+/* ------------------ FIN GALERIE ------------------ */
+
+/* ------------------ FORM reservation ------------------ */
+
+/* --- Container reservation --- */
+#reservation-section {
+  max-width: 600px;
+  margin: 0 auto;   /* deja gen margin nan container_resv */
+  background: transparent;  /* retire background blan */
+  padding: 0;       /* retire double padding */
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;   /* kenbe tèks default */
+}
+
+/* Titres */
+#reservation-section h2 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-size: 28px;
+}
+
+#reservation-section h3 {
+  margin-top: 25px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+/* Form */
+#reservation-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Labels */
+#reservation-section label {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+/* Inputs, selects, textarea */
+#reservation-section input,
+#reservation-section select,
+#reservation-section textarea {
+  padding: 12px 15px;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.25s ease;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+#reservation-section input:focus,
+#reservation-section select:focus,
+#reservation-section textarea:focus {
+  outline: none;
+  border-color: #d4af37;  /* Couleur dorée */
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+/* Boutons */
+#reservation-section button[type="submit"] {
+  background: #d4af37;
+  color: #111;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+#reservation-section button[type="submit"]:hover {
+  background: #b9972f;
+  color: #fff;
+}
+
+/* Bouton ajouter chambre */
+#addChambreBtn {
+  background: #28a745;
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 15px;
+  transition: background-color 0.25s ease;
+  
+}
+
+#addChambreBtn:hover {
+  background: #218838;
+}
+
+/* Ligne chambres dynamiques */
+.chambre-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.chambre-row select,
+.chambre-row input[type="number"] {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1.8px solid #ccc;
+  border-radius: 7px;
+  transition: border-color 0.25s ease;
+}
+
+.chambre-row select:focus,
+.chambre-row input[type="number"]:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+/* Bouton supprimer chambre */
+.removeChambreBtn {
+  background: #dc3545;
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.removeChambreBtn:hover {
+  background: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #reservation-section {
+    padding: 20px 25px;
+  }
+
+  .chambre-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .removeChambreBtn {
+    width: 100%;
+  }
+}
+
+/* ====== Events Section ====== */
+#eventsList {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #ccc;
+}
+
+/* Bouton ajouter événement */
+#addEventBtn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: fit-content;
+  margin-bottom: 10px;
+  transition: background-color 0.25s ease;
+  margin-top: 10px;
+}
+
+#addEventBtn:hover {
+  background: #0056b3;
+}
+
+/* Ligne événements dynamiques */
+.event-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+  flex-wrap: wrap; /* Pou fè li responsive si ti ekran */
+}
+
+/* Inputs & selects nan event-row */
+.event-row select,
+.event-row input[type="text"],
+.event-row input[type="date"],
+.event-row input[type="number"] {
+  flex: 1 1 150px; /* Pi fleksib ak min width */
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1.8px solid #ccc;
+  border-radius: 7px;
+  transition: border-color 0.25s ease;
+  box-sizing: border-box;
+}
+
+.event-row select:focus,
+.event-row input:focus {
+  border-color: #d4af37;  /* Couleur dorée */
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+/* Bouton supprimer événement */
+.removeEventBtn {
+  background: #dc3545;
+  border: none;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0; /* Pa kite li trennen sou flex */
+}
+
+.removeEventBtn:hover {
+  background: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .event-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .removeEventBtn,
+  #addEventBtn {
+    width: 100%;
+  }
+}
+
+/* ===== Services Options ===== */
+#serviceOptions {
+  display: none;              /* default: kache jiskaske JS louvri l */
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+/* Bouton pou ajoute sèvis */
+#addServiceBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid #2563eb;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+}
+
+#addServiceBtn:hover { 
+  background: #1d4ed8; 
+  box-shadow: 0 6px 16px rgba(29, 78, 216, .25);
+}
+#addServiceBtn:active { transform: translateY(1px); }
+#addServiceBtn:focus { outline: 2px solid #93c5fd; outline-offset: 2px; }
+
+/* Lis ranje sèvis yo */
+#servicesList {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+/* Chak ranje sèvis */
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr 120px 44px; /* select | qty | remove */
+  gap: 10px;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+/* Select & input */
+.service-row select,
+.service-row input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.service-row select:focus,
+.service-row input[type="number"]:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+}
+
+/* Bouton retire ranje a */
+.service-row .removeServiceBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  border: 1px solid #ef4444;
+  background: #fff5f5;
+  color: #ef4444;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .06s ease;
+}
+
+.service-row .removeServiceBtn:hover {
+  background: #fee2e2;
+}
+.service-row .removeServiceBtn:active { transform: translateY(1px); }
+.service-row .removeServiceBtn:focus { outline: 2px solid #fecaca; outline-offset: 2px; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .service-row {
+    grid-template-columns: 1fr 1fr;   /* select | qty */
+  }
+  .service-row .removeServiceBtn {
+    grid-column: span 2;
+    height: 40px;
+  }
+}
+
+
+/* pou autre service */
+#autreServiceDiv {
+  position: relative;
+  width: 100%;
+}
+
+#autreServiceDiv input[type="text"] {
+  width: 100%;
+  padding: 10px 35px 10px 12px; /* kite plas pou bouton ❌ */
+  font-size: 14px;
+  border: 1.8px solid #ccc;
+  border-radius: 7px;
+  transition: border-color 0.25s ease;
+  box-sizing: border-box;
+}
+
+#autreServiceDiv input[type="text"]:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+#removeAutreServiceBtn {
+  position: absolute;      /* pozisyone li sou div la */
+  right: 8px;              /* kite 8px depi bò dwat input la */
+  top: 68%;                /* santre sou vètikal input la */
+  transform: translateY(-50%); /* ajiste sant vètikal */
+  background: #dc3545;     /* koulè wouj */
+  border: none;
+  color: #fff;             /* koulè ikon ❌ a */
+  padding: 4px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#removeAutreServiceBtn:hover {
+  background: #c82333;     /* chanje koulè lè ou pase souri */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #autreServiceDiv input[type="text"] {
+    padding-right: 40px; /* toujou kite plas pou bouton */
+  }
+}
+
+/* ==============================
+     STYLE PAIEMENT
+============================== */
+.payment-section {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.payment-section h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.payment-options label {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.payment-options label:hover {
+  border-color: #f39c12;
+  background: #fffbe6;
+}
+
+.payment-options input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #f39c12;
+}
+
+.payment-logo {
+  width: 60px;
+  margin-right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .payment-options label {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .payment-logo {
+    margin-bottom: 5px;
+  }
+}
+
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.checkout-form.hidden { display: none; }
+
+/* PAYMENT */
+.payment-methods {
+  margin: 15px 0;
+}
+
+.payment-option {
+  display: block;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative; /* pou checkmark lan */
+}
+
+/* kache bouton radio, men li toujou klike */
+.payment-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.payment-option .option-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* espase logo + text ak checkmark */
+  gap: 12px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  transition: 0.3s;
+}
+
+/* efè hover */
+.payment-option:hover {
+  border-color: #007bff;
+  background: #f9f9ff;
+}
+
+/* si checked → style seleksyon */
+.payment-option input:checked + .option-content {
+  border-left: 5px solid #007bff;
+  background: #eef5ff;
+  font-weight: 600;
+  color: #007bff;
+}
+
+/* ajoute ✔ sou opsyon seleksyone */
+.payment-option input:checked + .option-content::after {
+  content: "✔";
+  font-size: 18px;
+  color: #007bff;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+.payment-option img {
+  width: 40px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* ===SECTION POLITIQUE DE RÉSERVATION === */
+.reservation-policy {
+  position: relative;
+  background: #1a1a1a;          /* nwa fonse */
+  color: #fff;                  /* tèks blan */
+  border-left: 4px solid #f39c12; /* aksan jòn/orange */
+  padding: 15px 20px 15px 50px;   /* espas pou icon */
+  margin: 20px 0;
+  border-radius: 8px;
+  font-size: 0.95em;
+  line-height: 1.5;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Icon “⚠️” */
+.reservation-policy::before {
+  content: "⚠️";
+  position: absolute;
+  left: 15px;
+  top: 28%;
+  transform: translateY(-50%);
+  font-size: 1.3em;
+}
+
+/* Tekst paragraf */
+.reservation-policy p {
+  margin: 0 0 10px 0;
+}
+
+/* Checkbox */
+.reservation-policy label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.reservation-policy input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  accent-color: #f39c12; /* koulè checkbox la */
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .reservation-policy {
+    font-size: 0.9em;
+    padding: 12px 15px 12px 45px;
+  }
+
+  .reservation-policy::before {
+    font-size: 1.1em;
+    left: 12px;
+  }
+}
+
+/* Pou pati kalkil la  */
+.summary{margin:16px 0;padding:12px 14px;border:1px solid #eee;border-radius:8px;background:#fafafa}
+.summary-row{display:flex;justify-content:space-between;align-items:center;margin:6px 0;font-size:.95rem}
+.summary-row span:first-child{opacity:.8}
+.summary-details {
+  margin: 8px 0 12px;
+  padding: 10px;
+  background: #f9fafb;
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.summary-details div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.summary-details div:last-child {
+  margin-bottom: 0;
+}
+
+    .container_resv {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 35px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      backdrop-filter: blur(3px);
+    }
+
+    .steps-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-bottom: 36px;
+      gap: 22px;
+      position: relative;
+      user-select: none;
+    }
+
+    /* Liy koneksyon ant etap yo */
+    .steps-container::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 13%;
+      right: 13%;
+      height: 3.5px;
+      background: linear-gradient(90deg, #cdd3e1 0%, #f0f0fa 100%);
+      z-index: 0;
+      border-radius: 2px;
+      opacity: 0.47;
+      transform: translateY(-50%);
+    }
+
+    /* Chak etap */
+    .step {
+      position: relative;
+      z-index: 1;
+      min-width: 148px;
+      padding: 13px 0;
+      text-align: center;
+      border-radius: 28px;
+      background: rgba(240,240,250,0.8);
+      color: #6b7280;
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(80,80,120,0.04);
+      cursor: default;
+      transition: color 0.3s, background 0.3s, transform 0.25s;
+      border: 1px solid transparent;
+    }
+
+    /* Etap aktif */
+    .step.active {
+      background: #007bff;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,123,255,0.4);
+      transform: scale(1.1);
+    }
+
+    /* Etap fini */
+    .step.done {
+      background: #2ecc40;
+      color: #fff;
+      border: 1.5px solid #2ecc40;
+      box-shadow: 0 2.5px 12px rgba(46,204,64,0.13);
+    }
+
+/* ------------------------------
+   608px → 1200px (tablet & petit laptop)
+--------------------------------*/
+@media (max-width: 1200px) {
+  .container_resv {
+    padding: 20px 25px;
+  }
+
+  .steps-container {
+    gap: 18px; /* ogmante espas ant steps */
+    justify-content: space-around;
+  }
+
+  .steps-container::before {
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    transform: translateY(-50%);
+  }
+
+  .step {
+    min-width: 90px;
+    font-size: 14px; /* pi piti tèks */
+    padding: 10px 18px; /* pi ti padding pou plis espas */
+  }
+
+  h2 {
+    font-size: 1.45rem;
+    line-height: 1.3;
+    margin-bottom: 18px;
+  }
+}
+
+/* ------------------------------
+   Mobile < 500px - Steps rete sou menm liy
+--------------------------------*/
+@media (max-width: 499px) {
+  .container_resv {
+    padding: 20px 15px;
+  }
+
+  .steps-container {
+    display: flex;
+    flex-direction: row;  /* rete sou menm liy */
+    flex-wrap: nowrap;    /* pa tonbe anba */
+    gap: 6px;             /* espas ant steps yo */
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .step {
+    min-width: 80px;       /* piti pou anfòm ekran piti */
+    font-size: 13px;       /* diminye font */
+    padding: 8px 12px;     /* ajiste padding */
+    text-align: center;
+    white-space: nowrap;   /* evite li kraze an plizyè liy */
+  }
+
+  #success-section {
+    padding: 20px 10px;
+    font-size: 15px;
+  }
+}
+
+/* ------------------------------
+   Fine-tuning pou iPhone XR / 11 (414px)
+--------------------------------*/
+@media (max-width: 414px) {
+  .step {
+    min-width: 75px;
+    font-size: 12.8px;
+    padding: 7px 10px;
+  }
+
+  #success-section {
+    padding: 18px 8px;
+  }
+}
+
+/* ------------------------------
+   iPhone SE & very small (≤375px)
+--------------------------------*/
+@media (max-width: 375px) {
+  .step {
+    min-width: 70px;
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  #success-section {
+    font-size: 14px;
+  }
+}
+
+section {
+  animation: fadeInDown 0.7s cubic-bezier(0.18,0.89,0.32,1.28);
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+#success-section {
+  display: none;
+  text-align: center;
+  padding: 36px 22px 30px 22px;
+  border-radius: 13px;
+  background: rgba(60, 239, 63, 0.10);
+  color: #148434;
+  box-shadow: 0 8px 32px 0 rgba(40,167,69,0.12);
+  margin-top: 12px;
+  animation: fadeIn 0.6s;
+}
+
+#success-section i {
+  font-size: 58px;
+  color: #28a745;
+  margin-bottom: 17px;
+  filter: drop-shadow(0 3px 11px rgba(46,204,64,0.14));
+}
+
+#success-section h2 {
+  color: #171f16;
+  font-size: 25px;
+  margin-bottom: 14px;
+}
+
+#success-section p {
+  margin-bottom: 9px;
+  font-size: 17px;
+  color: #242d2f;
+  font-weight: 500;
+}
+
+#success-section span {
+  color: #065ac7;
+  font-weight: 600;
+}
+
+/* BOUTONS */
+.btn-submit {
+  background: #28a745;
+  color: #fff;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+.btn-submit { background: #007bff; }
+.btn-submit:hover { background: #0056b3; }
+
+      /* ------------------ OTHERS ------------------ */
+/* ------------------ Pour icon whatsapp ------------------ */
+.ico-what{
+width: 70px;
+height: 70px;
+
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 60px;
+  z-index: 999;
+}
+
+/* ------------------ Animasyon pou 3 paj ki gen bouton filtrer yo   ------------------ */
+
+/* Keyframes pou fade + leve + ti scale */
+/* Animasyon fadeInUp plis dous */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.92); /* plis mouvman + pi piti scale */
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.02); /* ti rebound elegant */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Default: vizib, men san animasyon */
+.chambre-card,
+.gallery-item,
+.media-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lè yo parèt ak filtraj */
+.chambre-card.show,
+.gallery-item.show,
+.media-card.show {
+  animation: fadeInUp 1.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* ------------------ PIED DE PAGE ------------------ */
+
+footer {
+  background-color: #111;
+  color: #fff;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.footer-section h3 {
+  font-size: 16px;
+  color: #f7c600;
+  margin-bottom: 15px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #f7c600;
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.social-links li {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between; /* Mete espas ant tèks ak logo */
+  align-items: center; /* Alinye orizontal nan menm liy */
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 37px;
+  font-size: 17px;
+  color: #aaa;
+  margin-left: 90px;
+  margin-right: 90px;
+}
+
+.footer-payment-logos {
+  display: flex;
+  gap: 15px; /* Espas ant logo yo */
+  align-items: center;
+  height: 30px;
+ 
+}
+
+.footer-payment-logos img {
+  height: 40px;
+  vertical-align: middle;
+  border-radius: 10px;
+}
+
+/* ----- Responsiveness ----- */
+
+/* Pou ekran pi piti pase 768px (tablèt, mobil) */
+@media (max-width: 767px) {
+  .footer-container {
+    grid-template-columns: 1fr !important; /* Yon sèl kolòn */
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    gap: 15px;
+  }
+
+  .footer-payment-logos {
+    justify-content: center;
+  }
+}
+
+
+/* ==================   GLOBAL RESTAURANT   ================== */
+/* ============================
+   1. GLOBAL & BODY
+   ============================ */
+
+
+/* ============================
+   2. HERO BANNIÈ (HEADER SEKTION)
+   ============================ */
+.hero22 {
+  position: relative;
+  background: url("Elegant_Fine_Dining_.png") no-repeat center center / cover;
+  /* pou degrader */
+  background: 
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.9),   /* anlè: nwa ak 60% opacité */
+      rgba(185, 180, 180, 0.1)    /* anba: nwa ak 20% opacité */
+    ),
+    url("resto.jpg") no-repeat center center / cover;
+/*  background-color: #111;  fallback */
+  text-align: center;
+  padding: 100px 20px;
+  color: #ffffff;
+  margin-top: 30px;
+  overflow: hidden; /* pou overlay a pa depase */
+}
+
+/* Overlay ak opacité 
+.hero22::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.5); /* nwa ak 50% transparans 
+  z-index: 1;
+} */
+
+/* Tèks ak lòt eleman par-dessus */
+.hero22 h1,
+.hero22 p {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ============================
+   3. FILTER BAR (POU KATEGORI)
+   ============================ */
+.filter-bar {
+  display: flex;
+  justify-content: flex-start;      /* pou mobil ak ti ekran scroll aksesib */
+  flex-wrap: nowrap;             /*   pou alinyel a goch  */
+  overflow-x: auto;                     /* Pèmèt scroll orizontal */
+  -webkit-overflow-scrolling: touch;      /* Smooth scrollsou ios */
+  gap: 16px;                             /* Yon ti kras pi piti pou plis espas */
+  padding: 20px 40px;
+  margin: 50px 0 0 0;
+  scrollbar-width: none;         /* Kache scrollbar nan Firefox */
+  /*scrollbar-color: #eab308 #ffffff; /* Firefox (li bay scrollbar la koule tout */
+  -ms-overflow-style: none;       /* Kache scrollbar nan IE 10+ */
+  white-space: nowrap;              /* poul pa kase liy */
+  scroll-behavior: smooth;
+    /* pou evite bouton yo koupe nan ti ekran */
+  min-width: 0;
+}
+.filter-bar::-webkit-scrollbar {
+  display: none;                      /* Kache scrollbar Chrome/Safari/Edge */
+}
+
+.filter-bar button {
+  flex: 0 0 auto;                /* Chak bouton pran espas li */
+  min-width: 100px;             /* Redwi min-width pou ti ekran */
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;              /* poul pa kase liy */
+}
+
+/* Efè hover */
+.filter-bar button:hover {
+  background: #eab308;
+  color: #000; /* opsyonèl, pou pi vizib */
+}
+
+/* Bouton ki active (li kenbe menm style ak hover a) */
+.filter-bar button.active {
+  background: #eab308;
+  color: #000; /* opsyonèl */
+}
+
+@media (min-width: 1024px) {
+  .filter-bar {
+    justify-content: center; /* sou ekran gwo, santre bouton yo */
+    flex-wrap: wrap;          /* sou gwo ekran, bouton ka pase liy */
+    overflow-x: visible;      /* retire scroll si pa nesesè */
+  }
+  .filter-bar button {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    min-width: 85px;
+  }
+}
+
+
+/* ============================
+   4. MENU SEKTION (GRID)
+   ============================ */
+.menu2 {
+  max-width: 1200px;
+  margin: 50px auto 0 auto;
+  padding: 20px 20px;
+  flex: 3;
+}
+.menu2 h2 {
+  border-bottom: 2px solid #eab308;
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+/* ============================
+   5. GRILLE POU CHAK KATEGORI
+   ============================ */
+.menu2-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* ============================
+   6. ITEM KAT (POU CHAK MANJE) 
+   ============================ */
+.item {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.item:hover {
+  transform: translateY(-10px);
+}
+.item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.item h3 {
+  color: #eab308;
+  margin: 15px 0 10px;
+}
+.item p {
+  font-size: 0.95em;
+  padding: 0 10px;
+  color: #666;
+}
+.item span {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #333;
+  font-size: 1.2em;
+}
+.item button {
+  background: #eab308;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.item button:hover {
+  background: #c68a00;
+}
+
+/* ============================
+   7. PANIER 
+   ============================ */
+
+
+   
+
+/* ============================
+   8. FILTRAGE: KACHE/SHOW KAT
+   ============================ */
+/* (Pa deranje grid la si ou itilize display: none sou .item oswa .media-card) */
+
+/* ============================
+   9. RESPONSIVE ASIRANS
+   ============================ */
+
+@media (max-width: 800px) {
+  .menu2-grid { gap: 16px; }
+  .hero22 { font-size: 0.9em; padding: 60px 8px; }
+}
+
+/* (Plis media queries si ou vle) */
+
+
+
+/* ----------------- Pour la page A propos ------------------ */
+
+/* ------------------------------
+   GENERAL MAIN STYLES sim vle
+------------------------------- */
+
+.contener-about {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  color: #444;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.7;
+}
+
+/* ------------------------------
+   ABOUT HERO
+------------------------------- */
+
+.about-hero {
+  background: linear-gradient(
+      rgba(0,0,0,0.4), 
+      rgba(0,0,0,0.4)
+    ),
+    url('../images/about-hero.jpg') center/cover no-repeat;
+  padding: 80px 20px;
+  text-align: center;
+  color: #fff;
+  border-radius: 8px;
+  margin-bottom: 60px;
+}
+
+.about-hero h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.about-hero p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: #f0f0f0;
+}
+
+/* ------------------------------
+   SECTIONS GENERALES
+------------------------------- */
+
+main section {
+  margin-bottom: 50px;
+}
+
+main section h2 {
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+main section p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+main section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+main section ul li {
+  background: #f9f9f9;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-left: 4px solid #e0b973;
+  border-radius: 4px;
+}
+
+main section ul li strong {
+  color: #222;
+  font-weight: 600;
+}
+
+/* ------------------------------
+   SPECIFIQUE ABOUT-VALUES
+------------------------------- */
+
+.about-values ul li {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.about-values ul li:hover {
+  background: #fdf7ee;
+}
+
+/* ------------------------------
+   ABOUT EXTRA
+------------------------------- */
+
+.about-extra p strong {
+  color: #e0b973;
+  font-weight: 700;
+}
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------- */
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 28px;
+  }
+
+  .about-hero p {
+    font-size: 16px;
+  }
+
+  main section h2 {
+    font-size: 24px;
+  }
+
+  main section p {
+    font-size: 15px;
+  }
+}
