@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chambres</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- pou mete icon aparti de internet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    
+  <header>
+  <div class="logo-ico">
+    <img class="img_log" src="favicon.png" alt="Platinum Hôtel">
+    <div class="logo">Platinum Hôtel</div>
+  </div>
+    <nav id="nav-links">
+      <ul class="menu-s">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Chambres & Tarifs.html" class="active">Chambres</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Galerie.html">Galerie</a></li>
+        <li><a href="Reservation.html">Réservation</a></li>
+        <li><a href="Restaurant.html">Restaurant</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="À propos.html">À propos</a></li>
+      </ul>
+    </nav>
+      <div class="header-actions">
+       
+        <!-- la pou mete res paramet ki nan menu an --> 
+
+        <div id="user-section">
+    <!--   <a href="se-connecter.html" class="btn-se-connecter">Se connecter</a> -->
+        </div>
+        <button id="menu-toggle">&#9776;</button>
+      </div>
+  </header> 
+
+<section id="chambres">
+  <h2 class="chambres-title">Nos Chambres & Tarifs</h2>
+  <p class="chambres-intro">
+    Découvrez nos hébergements luxueux, conçus pour votre confort et votre bien-être.
+    Chaque chambre est un havre de paix, mêlant élégance moderne et services haut de gamme.
+  </p>
+
+  <div id="chambres1">
+    <!-- Filtre pour les chambres -->  
+    <div class="filter-bar">
+      <button onclick="filterGallery('all', event)" class="active">Tout</button>
+      <button onclick="filterGallery('standard', event)">Standard</button>
+      <button onclick="filterGallery('double', event)">Double</button>
+      <button onclick="filterGallery('luxe', event)">Luxe</button>
+    </div>
+
+    <div class="chambres-container">
+        <!-- Chambre Standard 1 -->
+        <div class="chambre-card" data-category="standard">
+          <img src="images/standard-room.jpg" alt="Chambre Standard" />
+          <h3>Chambre Standard</h3>
+          <p>Confort moderne, TV écran plat, Wi-Fi haut débit, salle de bain privative.</p>
+          <span>À partir de <strong>$80 US</strong> / nuit</span>
+          <a href="Réservation.html" class="btn-chambre">Réserver</a>
+        </div>
+        
+        <!-- Chambre Standard 2 -->
+        <div class="chambre-card" data-category="standard">
+          <img src="images/standard-room2.jpg" alt="Chambre Standard 2" />
+          <h3>Chambre Standard 2</h3>
+          <p>Balcon, TV écran plat, Wi-Fi haut débit.</p>
+          <span>À partir de <strong>$80 US</strong> / nuit</span>
+          <a href="Réservation.html" class="btn-chambre">Réserver</a>
+        </div>
+
+        <!-- Double -->
+        <div class="chambre-card" data-category="double">
+          <img src="images/suite-room.jpg" alt="double" />
+          <h3>Double</h3>
+          <p>Jacuzzi privé, salon séparé, service VIP personnalisé, amenities de luxe.</p>
+          <span>À partir de <strong>$120 US</strong> / nuit</span>
+          <a href="Réservation.html" class="btn-chambre">Réserver</a>
+        </div>
+
+        <!-- Chambre Luxe -->
+        <div class="chambre-card" data-category="luxe">
+          <img src="images/luxe-room.jpg" alt="Chambre Luxe" />
+          <h3>Chambre Luxe</h3>
+          <p>Vue panoramique, minibar premium, literie exclusive, produits d’accueil de luxe.</p>
+          <span>À partir de <strong>$220 US</strong> / nuit</span>
+          <a href="Réservation.html" class="btn-chambre">Réserver</a>
+        </div>
+
+
+      
+    </div>
+  </div>
+</section>
+
+  
+
+  <!-- Pied de page -->
+ <footer>
+  <div class="footer-container">
+    
+    <div class="footer-section">
+      <h3>Platinum Hôtel</h3>
+      <p>Habitation Ponceley<br>
+      Trou du Nord, Haïti</p>
+      <p>Email : <a href="mailto:contact@platinumhotel.ht">contact@platinumhotel.ht</a></p>
+      <p>Téléphone : <a href="tel:+50933534747">+509 3353 4747</a></p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Chambres & Tarifs.html">Chambres</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Galerie.html">Galerie</a></li>
+        <li><a href="Reservation.html">Réservation</a></li>
+        <li><a href="Restaurant.html">Restaurant</a></li>
+        <li><a href="À propos.html">À propos</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Suivez-nous</h3>
+      <ul class="social-links">
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+   <p> &copy; 2025 Platinum Hôtel — Tous droits réservés. | Design by <strong>Black Byte</strong></p>
+   
+    <!-- Seksyon logo peman -->
+    <div class="footer-payment-logos" >
+      <img src="PCI_Security.png" alt="PCI Security Standards Council" style="background-color: white; padding-left: 4px; padding-right: 4px;">
+      <img src="card.png" alt="Mastercard" style="background-color: white;">
+      <img src="visa.png" alt="Visa" style="background-color: white; padding-left: 2px; padding-right: 4px;">
+      <img src="natcash.png" alt="NatCash">
+      <img src="moncash.png" alt="MonCash">
+    </div>
+
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

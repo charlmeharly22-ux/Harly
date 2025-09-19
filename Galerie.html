@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- pou mete icon aparti de internet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <header>
+  <div class="logo-ico">
+    <img class="img_log" src="favicon.png" alt="Platinum Hôtel">
+    <div class="logo">Platinum Hôtel</div>
+  </div>
+    <nav id="nav-links">
+      <ul class="menu-s">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Chambres & Tarifs.html">Chambres</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Galerie.html" class="active">Galerie</a></li>
+        <li><a href="Reservation.html">Réservation</a></li>
+        <li><a href="Restaurant.html">Restaurant</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="À propos.html">À propos</a></li>
+      </ul>
+    </nav>
+      <div class="header-actions">
+       
+        <!-- la pou mete res paramet ki nan menu an --> 
+
+        <div id="user-section">
+    <!--   <a href="se-connecter.html" class="btn-se-connecter">Se connecter</a> -->
+        </div>
+        <button id="menu-toggle">&#9776;</button>
+      </div>
+  </header> 
+  
+
+  
+<!-- HERO CAROUSEL -->
+<div id="hero-bg" class="hero-bg">
+  <div class="main-content">
+    <div class="left-hero" id="left-hero">
+      <div class="subtitle" id="hero-subtitle">Le Platinum</div>
+      <div class="title" id="hero-title">HÔTEL & COUNTRY CLUB</div>
+      <div class="desc" id="hero-desc">
+        Une oasis d’élégance et de confort au cœur de Hinche. Chambres raffinées, restaurant signature, piscine, spa & espaces pour événements.
+      </div>
+      <span class="dot"></span>
+    </div>
+
+    <div class="carousel-cards-wrapper" aria-hidden="false">
+      <div class="carousel-cards-row" id="carouselRow" role="list">
+        <!-- Deluxe Suite -->
+        <div class="carousel-card selected" tabindex="0" role="listitem"
+             data-img="images/deluxe-suite.jpg"
+             data-subtitle="Signature"
+             data-title="SUITE DELUXE KING"
+             data-desc="Chambre spacieuse avec lit king, balcon privé & service en chambre 24h/24.">
+          <img src="images/deluxe-suite-thumb.jpg" alt="Suite Deluxe King" />
+          <div class="card-overlay"></div>
+          <div class="card-text">
+            <div class="card-title">SUITE<br>DELUXE</div>
+            <div class="card-desc">King • Balcon • 24h/24</div>
+          </div>
+        </div>
+
+        <!-- Infinity Pool & Sun Deck -->
+        <div class="carousel-card" tabindex="0"
+             data-img="slider2.JPG"
+             data-subtitle="Détente"
+             data-title="PISCINE À DÉBORDEMENT & SOLARIUM"
+             data-desc="Détendez-vous au bord de la piscine avec lits bains de soleil, bar & musique live le samedi soir.">
+          <img src="slider2.JPG" alt="Piscine à débordement" />
+          <div class="card-overlay"></div>
+          <div class="card-text">
+            <div class="card-title">PISCINE<br>SOLARIUM</div>
+            <div class="card-desc">Bar • Lounge • Live</div>
+          </div>
+        </div>
+
+        <!-- Signature Restaurant -->
+        <div class="carousel-card" tabindex="0"
+             data-img="images/restaurant.jpg"
+             data-subtitle="Gastronomie"
+             data-title="RESTAURANT & BAR SIGNATURE"
+             data-desc="Cuisine haïtienne moderne aux saveurs internationales, sélection de vins & cocktails artisanaux.">
+          <img src="images/restaurant-thumb.jpg" alt="Restaurant & Bar" />
+          <div class="card-overlay"></div>
+          <div class="card-text">
+            <div class="card-title">RESTAURANT<br>& BAR</div>
+            <div class="card-desc">Gourmet • Cocktails</div>
+          </div>
+        </div>
+
+        <!-- Grand Ballroom / Events -->
+        <div class="carousel-card" tabindex="0"
+             data-img="images/salle-ballroom.jpg"
+             data-subtitle="Événements"
+             data-title="GRAND BALLROOM & MARIAGES"
+             data-desc="Salle de réception pour mariages & conférences, équipements son & lumière professionnels.">
+          <img src="images/salle-ballroom-thumb.jpg" alt="Grand Ballroom" />
+          <div class="card-overlay"></div>
+          <div class="card-text">
+            <div class="card-title">BALLROOM<br>ÉVÉNEMENTS</div>
+            <div class="card-desc">Mariages • Séminaires</div>
+          </div>
+        </div>
+
+        <!-- Spa & Wellness -->
+        <div class="carousel-card" tabindex="0"
+             data-img="images/spa.jpg"
+             data-subtitle="Bien-être"
+             data-title="SPA & BIEN-ÊTRE"
+             data-desc="Massages, sauna & soins détox. Ouvert tous les jours de 9h à 21h.">
+          <img src="images/spa-thumb.jpg" alt="Spa & Bien-être" />
+          <div class="card-overlay"></div>
+          <div class="card-text">
+            <div class="card-title">SPA<br>BIEN-ÊTRE</div>
+            <div class="card-desc">Massage • Sauna</div>
+          </div>
+        </div>
+
+        <!-- Fitness & Tennis -->
+        <div class="carousel-card" tabindex="0"
+             data-img="images/fitness.jpg"
+             data-subtitle="Sport"
+             data-title="FITNESS & TERRAINS DE TENNIS"
+             data-desc="Salle de sport moderne, terrains de tennis & cours de yoga le samedi matin.">
+          <img src="images/fitness-thumb.jpg" alt="Fitness & Tennis" />
+          <div class="card-overlay"></div>
+          <div class="card-text">
+            <div class="card-title">FITNESS<br>TENNIS</div>
+            <div class="card-desc">Gym • Yoga • Court</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Controls Zone (page-indicator + boutons) -->
+  <div class="controls-zone">
+    <div class="nav-buttons">
+      <button class="glass-btn prev-btn" aria-label="Previous slide">←</button>
+      <button class="glass-btn next-btn" aria-label="Next slide">→</button>
+    </div>
+      <div class="page-indicator" id="page-indicator" aria-label="Slide indicator"></div>
+  </div>
+</div>
+
+<!-- SITE HEADER -->
+<div class="header1">
+  <h1>Le Platinum Hotel & Country Club</h1>
+</div>
+
+
+<h2>Galerie Hôtel Platinum</h2>
+
+<div class="filter-bar">
+  <button onclick="filterGallery('all', event)" class="active">Tout</button>
+  <button onclick="filterGallery('rooms', event)">Chambres</button>
+  <button onclick="filterGallery('dining', event)">Restauration</button>
+  <button onclick="filterGallery('spa', event)">Spa</button>
+  <button onclick="filterGallery('events', event)">Événements</button>
+  <button onclick="filterGallery('activities', event)">Activités</button>
+</div>
+
+<!-- Gallery Items (HTML DIRECT) -->
+<div class="gallery" id="gallery">
+  <div class="gallery-item" data-category="rooms"><img src="Cabri_en_sauce.png" alt="Suite Deluxe"><p>Suite Deluxe</p></div>
+  <div class="gallery-item" data-category="rooms"><img src="https://source.unsplash.com/400x300/?bedroom" alt=""><p>Chambre Standard</p></div>
+  <div class="gallery-item" data-category="dining"><img src="https://source.unsplash.com/400x300/?restaurant"><p>Restaurant Gastronomique</p></div>
+  <div class="gallery-item" data-category="dining"><img src="https://source.unsplash.com/400x300/?food"><p>Menu Gourmand</p></div>
+  <div class="gallery-item" data-category="spa"><img src="https://source.unsplash.com/400x300/?spa"><p>Spa & Bien-être</p></div>
+  <div class="gallery-item" data-category="events"><video src="https://www.w3schools.com/html/mov_bbb.mp4" controls></video><p>Événements & Mariages</p></div>
+  <div class="gallery-item" data-category="activities"><img src="https://source.unsplash.com/400x300/?pool"><p>Piscine & Loisirs</p></div>
+  <div class="gallery-item" data-category="activities"><img src="https://source.unsplash.com/400x300/?tennis"><p>Tennis & Sport</p></div>
+  <div class="gallery-item" data-category="rooms"><img src="https://source.unsplash.com/400x300/?luxury-room"><p>Suite Royale</p></div>
+  <div class="gallery-item" data-category="dining"><img src="https://source.unsplash.com/400x300/?dessert"><p>Pâtisserie Fine</p></div>
+  <div class="gallery-item" data-category="spa"><img src="https://source.unsplash.com/400x300/?massage"><p>Massage Relaxant</p></div>
+  <div class="gallery-item" data-category="events"><img src="https://source.unsplash.com/400x300/?wedding"><p>Mariage</p></div>
+  <div class="gallery-item" data-category="activities"><video src="https://www.w3schools.com/html/movie.mp4" controls></video><p>Plongée Aquatique</p></div>
+  <div class="gallery-item" data-category="rooms"><img src="https://source.unsplash.com/400x300/?suite"><p>Chambre VIP</p></div>
+  <div class="gallery-item" data-category="dining"><img src="https://source.unsplash.com/400x300/?cocktail"><p>Bar & Cocktails</p></div>
+  <div class="gallery-item" data-category="events"><img src="https://source.unsplash.com/400x300/?concert"><p>Concert Live</p></div>
+</div>
+
+<div class="pagination" id="pagination"></div>
+
+<!-- Lightbox -->
+<div id="lightboxOverlay">
+  <span id="lightboxClose">&times;</span>
+  <span id="lightboxPrev">&#10094;</span>
+  <div id="lightboxContent"></div>
+  <span id="lightboxNext">&#10095;</span>
+  <div id="lightboxCaption"></div>
+</div>
+
+<!-- FEATURED HOTEL PRESENTATION -->
+<section class="featured-article container">
+  <img src="slider1.JPG" alt="Platinum Hôtel" />
+  
+  <div class="text">
+    <h2>Platinum Hôtel & Country Club</h2>
+    <p>
+      Situé au cœur du Nord d’Haïti, le <strong>Platinum Hôtel</strong> vous invite à vivre une expérience
+      d’exception où confort moderne et élégance s’unissent.  
+      Que ce soit pour un <em>séjour romantique</em>, un <em>week-end de détente</em> ou un 
+      <em>voyage d’affaires</em>, notre établissement vous offre des chambres raffinées, un service attentif 
+      et une atmosphère inoubliable.  
+    </p>
+    <p>
+      Découvrez notre restaurant gastronomique, détendez-vous dans nos espaces lounge ou profitez 
+      de notre spa avec des soins exclusifs.  
+      Chaque instant au <strong>Platinum Hôtel</strong> est pensé pour sublimer votre séjour et faire de vos 
+      vacances un véritable rêve.
+    </p>
+
+    <div class="author">
+      <img src="favicon.png" alt="Guest Relations" />
+      <div>
+        <strong>Guest Relations</strong>
+        <p>Notre mission : transformer votre séjour en une expérience mémorable et prestigieuse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-content container">
+    <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=60" alt="Platinum Hôtel" />
+    <div>
+      <h2>Platinum Hôtel</h2>
+      <p>Réservez dès maintenant et laissez-vous emporter par une expérience unique et inoubliable au <strong>Platinum Hôtel</strong>.</p>
+      <a href="Réservation.html" class="newsletter-btn">Réservation</a>
+    </div>
+  </div>
+</section>
+
+<div class="hotel-services_1" style=" margin-bottom: 60px;">
+    <div class="hotel-service">
+        <i class="fas fa-wifi hotel-icon"></i>
+        <div class="hotel-text">
+            <h4>Wi-Fi gratuit</h4>
+            <p>Disponible partout</p>
+        </div>
+    </div>
+
+    <div class="hotel-service">
+        <i class="fas fa-snowflake hotel-icon"></i>
+        <div class="hotel-text">
+            <h4>Climatisation</h4>
+            <p>Dans toutes les chambres</p>
+        </div>
+    </div>
+
+    <div class="hotel-service">
+        <i class="fas fa-parking hotel-icon"></i>
+        <div class="hotel-text">
+            <h4>Parking</h4>
+            <p>Gratuit et sécurisé</p>
+        </div>
+    </div>
+
+    <div class="hotel-service">
+        <i class="fas fa-tv hotel-icon"></i>
+        <div class="hotel-text">
+            <h4>Télévision</h4>
+            <p>Chaînes locales et internationales</p>
+        </div>
+    </div>
+
+    <div class="hotel-service">
+        <i class="fas fa-spa hotel-icon"></i>
+        <div class="hotel-text">
+            <h4>Massage & Spa</h4>
+            <p>Bien-être et détente</p>
+        </div>
+    </div>
+
+    <div class="hotel-service">
+        <i class="fas fa-swimming-pool hotel-icon"></i>
+        <div class="hotel-text">
+            <h4>Piscine extérieure</h4>
+            <p>Ouverte toute l'année</p>
+        </div>
+    </div>
+</div>  
+
+  <!-- Pied de page -->
+ <footer>
+  <div class="footer-container">
+    
+    <div class="footer-section">
+      <h3>Platinum Hôtel</h3>
+      <p>Habitation Ponceley<br>
+      Trou du Nord, Haïti</p>
+      <p>Email : <a href="mailto:contact@platinumhotel.ht">contact@platinumhotel.ht</a></p>
+      <p>Téléphone : <a href="tel:+50933534747">+509 3353 4747</a></p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Chambres & Tarifs.html">Chambres</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Galerie.html">Galerie</a></li>
+        <li><a href="Reservation.html">Réservation</a></li>
+        <li><a href="Restaurant.html">Restaurant</a></li>
+        <li><a href="À propos.html">À propos</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Suivez-nous</h3>
+      <ul class="social-links">
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+   <p> &copy; 2025 Platinum Hôtel — Tous droits réservés. | Design by <strong>Black Byte</strong></p>
+    <!-- Seksyon logo peman -->
+    <div class="footer-payment-logos" >
+      <img src="PCI_Security.png" alt="PCI Security Standards Council" style="background-color: white; padding-left: 4px; padding-right: 4px;">
+      <img src="card.png" alt="Mastercard" style="background-color: white;">
+      <img src="visa.png" alt="Visa" style="background-color: white; padding-left: 2px; padding-right: 4px;">
+      <img src="natcash.png" alt="NatCash">
+      <img src="moncash.png" alt="MonCash">
+    </div>
+
+  </div>
+</footer>
+
+  <script src="script.js"></script> 
+  
+</body>
+</html>
