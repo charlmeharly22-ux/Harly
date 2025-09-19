@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restaurant - Platinum Hotel & Country Club</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- pou mete icon aparti de internet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="styles.css" />
+  
+</head>
+<body>
+
+  <header>
+  <div class="logo-ico">
+    <img class="img_log" src="favicon.png" alt="Platinum Hôtel">
+    <div class="logo">Platinum Hôtel</div>
+  </div>
+    <nav id="nav-links">
+        <ul class="menu-s">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Chambres & Tarifs.html">Chambres</a></li>
+          <li><a href="Services.html">Services</a></li>
+          <li><a href="Galerie.html">Galerie</a></li>
+          <li><a href="Reservation.html">Réservation</a></li>
+          <li><a href="Restaurant.html" class="active">Restaurant</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="À propos.html">À propos</a></li>
+        </ul>
+    </nav>
+      <div class="header-actions">
+       
+        <!-- la pou mete res paramet ki nan menu an --> 
+          <!-- ICON PANIER 
+          <h2 id="cartToggle" class="cart-toggle">
+            <i class="fas fa-shopping-cart"></i> 
+            <span id="cartCount" class="cart-count">0</span>
+          </h2> -->
+        <div id="user-section">
+    <!--   <a href="se-connecter.html" class="btn-se-connecter">Se connecter</a> -->
+        </div>
+        <button id="menu-toggle">&#9776;</button>
+      </div>
+  </header>
+
+
+  <div class="hero22">
+    <h1>Restaurant Platinum Hotel & Country Club</h1>
+    <p>Découvrez des saveurs exquises et variées dans un cadre élégant.</p>
+  </div> 
+
+<!-- Pour filtrer le menu -->
+<div class="filter-bar">
+  <button onclick="filterGallery('all', event)" class="active">Tout</button>
+  <button onclick="filterGallery('Entrées', event)">Entrées</button>
+  <button onclick="filterGallery('Salades', event)">Salades</button>
+  <button onclick="filterGallery('Pâtes', event)">Pâtes</button>
+  <button onclick="filterGallery('Sandwiches', event)">Sandwiches</button>
+  <button onclick="filterGallery('Burger', event)">Burger</button>
+  <button onclick="filterGallery('Pizzas', event)">Pizzas</button>
+  <button onclick="filterGallery('Pâtés', event)">Pâtés</button>
+  <button onclick="filterGallery('Fruit_de_Mer', event)">Fruit de Mer</button>
+  <button onclick="filterGallery('Volailles', event)">Volailles</button>
+  <button onclick="filterGallery('Viandes', event)">Viandes</button>
+  <button onclick="filterGallery('Boissons', event)">Boissons</button>
+</div>
+
+<div class="menu-layout">
+<section class="menu2">
+
+  <!-- Entrées -->
+  <div class="media-card" data-category="Entrées">
+    <h2>Entrées</h2>
+    <div class="menu2-grid">
+      <div class="item">
+        <img src="Kibby .png" alt="Kibby" />
+        <h3>Kibby</h3>
+        <p>Délice moyen-oriental à base de viande épicée et de blé concassé.</p>
+        <span>$6 US</span>
+      <!-- <button onclick="addToCart('Kibby', 6)">Ajouter</button> -->
+      </div>
+      <div class="item">
+        <img src="Boulettes de viande .png" alt="Boulettes de viande" />
+        <h3>Boulettes de viande</h3>
+        <p>Petites boules tendres de bœuf parfumées aux herbes.</p>
+        <span>$5 US</span>
+        <!--<button onclick="addToCart('Boulettes de viande', 5)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Accras de crevettes.png" alt="Acras" />
+        <h3>Acras</h3>
+        <p>Beignets croustillants, saveur créole authentique.</p>
+        <span>$4 US</span>
+        <!--<button onclick="addToCart('Acras', 4)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Croquettes de morue.png" alt="Croquettes de Morue" />
+        <h3>Croquettes de Morue</h3>
+        <p>Délices de morue, parfaitement dorées et savoureuses.</p>
+        <span>$7 US</span>
+        <!--<button onclick="addToCart('Croquettes de Morue', 7)">Ajouter</button>-->
+      </div>
+    </div>
+  </div>
+
+  <!-- Salades et Soupes -->
+  <div class="media-card" data-category="Salades">
+    <h2>Salades et Soupes</h2>
+    <div class="menu2-grid">
+      <div class="item">
+        <img src="Salade Cesar Poulet .png" alt="Salade César de Poulet" />
+        <h3>Salade César de Poulet</h3>
+        <p>Salade fraîche garnie de poulet grillé, parmesan et croûtons.</p>
+        <span>$10 US</span>
+        <!--<button onclick="addToCart('Salade César de Poulet', 10)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Salade César .png" alt="Salade César" />
+        <h3>Salade César</h3>
+        <p>Salade classique avec parmesan et croûtons.</p>
+        <span>$8 US</span>
+        <!--<button onclick="addToCart('Salade César', 8)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Salade du Chef.png" alt="Salade du Chef" />
+        <h3>Salade du Chef</h3>
+        <p>Salade composée avec ingrédients frais et vinaigrette maison.</p>
+        <span>$12 US</span>
+        <!--<button onclick="addToCart('Salade du Chef', 12)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Conch Salade.png" alt="Conch Salade" />
+        <h3>Conch Salade</h3>
+        <p>Salade de conque fraîche, saveur créole.</p>
+        <span>$7 US</span>
+        <!--<button onclick="addToCart('Conch Salade', 7)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Soupe Ramen.png" alt="Soupe Ramen" />
+        <h3>Soupe Ramen</h3>
+        <p>Soupe asiatique savoureuse aux nouilles fines et légumes.</p>
+        <span>$4 US</span>
+        <!--<button onclick="addToCart('Soupe Ramen', 4)">Ajouter</button>-->
+      </div>
+    </div>
+  </div>
+  <!-- Pâtes -->
+  <div class="media-card" data-category="Pâtes">
+    <h2>Pâtes</h2>
+    <div class="menu2-grid">
+      <div class="item">
+        <img src="Spaghetti Bolognaise.png" alt="Spaghetti Bolognaise" />
+        <h3>Spaghetti Bolognaise</h3>
+        <p>Spaghetti avec sauce à la viande riche et épicée.</p>
+        <span>$12 US</span>
+        <!--<button onclick="addToCart('Spaghetti Bolognaise', 12)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Spaghetti Jambon et Fromage.png" alt="Spaghetti Jambon et Fromage" />
+        <h3>Spaghetti Jambon et Fromage</h3>
+        <p>Spaghetti mélangé avec jambon et fromage fondant.</p>
+        <span>$10 US</span>
+        <!--<button onclick="addToCart('Spaghetti Jambon et Fromage', 10)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Spaghetti_Hareng_saur.png" alt="Spaghetti Hareng saur" />
+        <h3>Spaghetti Hareng saur</h3>
+        <p>Spaghetti agrémenté d’hareng saur savoureux.</p>
+        <span>$6 US</span>
+        <!--<button onclick="addToCart('Spaghetti Hareng saur', 6)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Spaghetti aux légumes.png" alt="Spaghetti aux légumes" />
+        <h3>Spaghetti aux légumes</h3>
+        <p>Spaghetti avec légumes frais et sauce légère.</p>
+        <span>$5 US</span>
+        <!--<button onclick="addToCart('Spaghetti aux légumes', 5)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Spaghetti au Poulet.png" alt="Spaghetti au Poulet" />
+        <h3>Spaghetti au Poulet</h3>
+        <p>Spaghetti accompagné de morceaux de poulet grillé.</p>
+        <span>$7 US</span>
+        <!--<button onclick="addToCart('Spaghetti au Poulet', 7)">Ajouter</button>-->
+      </div>
+    </div>
+  </div>
+
+  <!-- Sandwiches -->
+  <div class="media-card" data-category="Sandwiches">
+    <h2>Sandwiches</h2>
+    <div class="menu2-grid">
+      <div class="item">
+        <img src="Sandwich Jambon Fromage.png" alt="Sandwich Jambon Fromage" />
+        <h3>Sandwich Jambon Fromage</h3>
+        <p>Sandwich chaud avec jambon et fromage fondant.</p>
+        <span>$5 US</span>
+        <!--<button onclick="addToCart('Sandwich Jambon Fromage', 5)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Sandwich Poulet.png" alt="Sandwich Poulet" />
+        <h3>Sandwich Poulet</h3>
+        <p>Sandwich frais garni de poulet tendre.</p>
+        <span>$5 US</span>
+        <!--<button onclick="addToCart('Sandwich Poulet', 5)">Ajouter</button>-->
+      </div>
+    </div>
+  </div>
+
+  <!-- Burger -->
+  <div class="media-card" data-category="Burger">
+    <h2>Burger</h2>
+    <div class="menu2-grid">
+      <div class="item">
+        <img src="Cheese Burger.png" alt="Cheese Burger" />
+        <h3>Cheese Burger</h3>
+        <p>Burger classique avec fromage, salade et sauce.</p>
+        <span>$10 US</span>
+       <!--<button onclick="addToCart('Cheese Burger', 10)">Ajouter</button>-->
+      </div>
+    </div>
+  </div>
+
+  <!-- Pâtés -->
+  <div class="media-card" data-category="Pâtés">
+    <h2>Pâtés</h2>
+    <div class="menu2-grid">
+      <div class="item">
+        <img src="Pâté Morue.png" alt="Pâté Morue" />
+        <h3>Pâté Morue</h3>
+        <p>Pâté traditionnel à la morue.</p>
+        <span>$3 US</span>
+        <!--<button onclick="addToCart('Pâté Morue', 3)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Pâté Viande de Bœuf.png" alt="Pâté Viande de Bœuf" />
+        <h3>Pâté Viande de Bœuf</h3>
+        <p>Pâté de viande de bœuf savoureux.</p>
+        <span>$3 US</span>
+        <!--<button onclick="addToCart('Pâté Viande de Bœuf', 3)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Pâté Poulet.png" alt="Pâté Poulet" />
+        <h3>Pâté Poulet</h3>
+        <p>Pâté fait maison avec poulet tendre.</p>
+        <span>$2 US</span>
+        <!--<button onclick="addToCart('Pâté Poulet', 2)">Ajouter</button>-->
+      </div>
+    </div>
+  </div>
+
+  <!-- Pizzas -->
+  <div class="media-card" data-category="Pizzas">
+    <h2>Les Pizzas</h2>
+    <div class="menu2-grid">
+      <div class="item">
+        <img src="pizza_pepperoni.png" alt="Pizza Pepperoni" />
+        <h3>Pizza Pepperoni, Jambon, Fromage, Poulet</h3>
+        <p>Choisissez votre taille.</p>
+        <span>Small – $12 US</span>
+        <!--<button onclick="addToCart('Pizza Pepperoni - Small', 12)">Ajouter</button>-->
+        <span>Medium – $16 US</span>
+        <!--<button onclick="addToCart('Pizza Pepperoni - Medium', 16)">Ajouter</button>-->
+        <span>Large – $23 US</span>
+        <!--<button onclick="addToCart('Pizza Pepperoni - Large', 23)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="pizza_fruits_de_mer.png" alt="Pizza Fruit de Mer" />
+        <h3>Pizza Fruit de Mer</h3>
+        <p>Pizza aux fruits de mer, disponible en plusieurs tailles.</p>
+        <span>Small – $14 US</span>
+        <!--<button onclick="addToCart('Pizza Fruit de Mer - Small', 14)">Ajouter</button>-->
+        <span>Medium – $18 US</span>
+        <!--<button onclick="addToCart('Pizza Fruit de Mer - Medium', 18)">Ajouter</button>-->
+        <span>Large – $23 US</span>
+        <!--<button onclick="addToCart('Pizza Fruit de Mer - Large', 23)">Ajouter</button>-->
+      </div>
+    </div>
+  </div>
+
+  <!-- Fruit de mer -->
+  <div class="media-card" data-category="Fruit_de_Mer">
+    <h2>Poisson</h2>
+    <div class="menu2-grid">
+      <div class="item">
+        <img src="Poisson.png" alt="Poisson" />
+        <h3>Poisson</h3>
+        <p>Prix varier selon la taille  </p>
+        <span>$16 - $100 US</span>
+        <!--<button onclick="addToCart('Fruit de Mer - Small', 2000)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Congre.png" alt="Congre" />
+        <h3>Congre</h3>
+        <p>Plat à base de congre.</p>
+        <span>$12 US</span>
+        <!--<button onclick="addToCart('Congre', 12)">Ajouter</button>-->
+      </div>
+    </div>
+
+    <!-- Homard (Lobster) -->
+    <h2>Homard (Lobster)</h2>
+      <div class="menu2-grid">
+        <div class="item">
+          <img src="Homard_grille.png" alt="Homard Grillé" />
+          <h3>Homard Grillé</h3>
+          <p>Homard grillé au feu de bois.</p>
+          <p>Prix varier selon la taille  </p>
+          <span>$24 - $70 US</span>
+          <!--<button onclick="addToCart('Homard Grillé', 2500)">Ajouter</button>-->
+        </div>
+        <div class="item">
+          <img src="Homard_en_sauce.png" alt="Homard en sauce" />
+          <h3>Homard en sauce</h3>
+          <p>Homard dans une sauce spéciale.</p>
+          <p>Prix varier selon la taille  </p>
+          <span>$24 - $70 US</span>
+          <!--<button onclick="addToCart('Homard en sauce', 2500)">Ajouter</button>-->
+        </div>
+        <div class="item">
+          <img src="Homard_beurre_ail.png" alt="Homard au beurre d’ail" />
+          <h3>Homard au beurre d’ail</h3>
+          <p>Homard avec beurre à l'ail fondant.</p>
+          <p>Prix varier selon la taille  </p>
+          <span>$24 - $70 US</span>
+          <!--<button onclick="addToCart('Homard au beurre d’ail', 2500)">Ajouter</button>-->
+        </div>
+      </div>
+
+    <!-- Crevettes (Shrimp) -->
+    <h2>Crevettes (Shrimp)</h2>
+    <div class="menu2-grid">
+      <div class="item">
+        <img src="Crevettes_sautees.png" alt="Crevettes sautées" />
+        <h3>Crevettes sautées</h3>
+        <p>Crevettes sautées à la poêle.</p>
+        <span>$16 US</span>
+        <!--<button onclick="addToCart('Crevettes sautées', 16)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Crevettes_beurre_ail.png" alt="Crevettes au beurre d’ail" />
+        <h3>Crevettes au beurre d’ail</h3>
+        <p>Crevettes avec une sauce au beurre d’ail.</p>
+        <span>$16 US</span>
+        <!--<button onclick="addToCart('Crevettes au beurre d’ail', 16)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Crevettes_en_sauce.png" alt="Crevettes en sauce" />
+        <h3>Crevettes en sauce</h3>
+        <p>Crevettes en sauce créole.</p>
+        <span>$16 US</span>
+        <!--<button onclick="addToCart('Crevettes en sauce', 16)">Ajouter</button>-->
+      </div>
+    </div>  
+
+    <!-- Lambi -->
+    <h2>Lambi</h2>
+    <div class="menu2-grid">
+      <div class="item">
+        <img src="Lambi_en_sauce.png" alt="Lambi en sauce" />
+        <h3>Lambi en sauce</h3>
+        <p>Lambi cuisiné dans une sauce créole.</p>
+        <span>$20 US</span>
+        <!--<button onclick="addToCart('Lambi en sauce', 20)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Lambi_saute.png" alt="Lambi sauté" />
+        <h3>Lambi sauté</h3>
+        <p>Lambi sauté avec légumes frais.</p>
+        <span>$20 US</span>
+        <!--<button onclick="addToCart('Lambi sauté', 20)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Lambi_grille.png" alt="Lambi Grillé" />
+        <h3>Lambi Grillé</h3>
+        <p>Lambi grillé au feu de bois.</p>
+        <span>$20 US</span>
+        <!--<button onclick="addToCart('Lambi Grillé', 20)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Pieuvre (Chat Wouj).png" alt="Pieuvre (Chat Wouj)" />
+        <h3>Pieuvre (Chat Wouj)</h3>
+        <p>Spécialité à base de pieuvre.</p>
+        <span>$16 US</span>
+        <!--<button onclick="addToCart('Pieuvre (Chat Wouj)', 16)">Ajouter</button>-->
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- Volailles (Poulet) -->
+  <div class="media-card" data-category="Volailles">
+    <h2>Volailles (Poulet)</h2>
+    <div class="menu2-grid">
+      <div class="item">
+        <img src="Poulet_en_sauce_creole.png" alt="Poulet en sauce créole" />
+        <h3>Poulet en sauce créole</h3>
+        <p>Poulet mijoté dans une sauce créole épicée.</p>
+        <span>$12 US</span>
+        <!--<button onclick="addToCart('Poulet en sauce créole', 12)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Poulet_BBQ.png" alt="Poulet BBQ" />
+        <h3>Poulet BBQ</h3>
+        <p>Poulet grillé sauce barbecue.</p>
+        <span>$12 US</span>
+        <!--<button onclick="addToCart('Poulet BBQ', 12)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Poulet_Platinum.png" alt="Poulet Platinum" />
+        <h3>Poulet Platinum</h3>
+        <p>Spécialité de la maison.</p>
+        <span>$12 US</span>
+        <!--<button onclick="addToCart('Poulet Platinum', 12)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Poulet_Frit.png" alt="Poulet Frit" />
+        <h3>Poulet Frit</h3>
+        <p>Poulet frit croustillant.</p>
+        <span>$12 US</span>
+        <!--<button onclick="addToCart('Poulet Frit', 12)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Poulet_saute_vin.png" alt="Poulet sauté au vin" />
+        <h3>Poulet sauté au vin</h3>
+        <p>Poulet sauté avec sauce au vin.</p>
+        <span>$16 US</span>
+        <!--<button onclick="addToCart('Poulet sauté au vin', 16)">Ajouter</button>-->
+      </div>  
+    </div>
+
+      <!-- Chicken Wings -->
+      <h2>Chicken Wings</h2>
+      <div class="menu2-grid">
+        <div class="item">
+          <img src="Chicken_wing_pane.png" alt="Chicken wing Pané" />
+          <h3>Chicken wing Pané</h3>
+          <p>Ailes de poulet panées croustillantes.</p>
+          <span>$10 US</span>
+          <!--<button onclick="addToCart('Chicken wing Pané', 10)">Ajouter</button>-->
+        </div>
+        <div class="item">
+          <img src="Chicken_wing_bbq.png" alt="Chicken wing BBQ" />
+          <h3>Chicken wing BBQ</h3>
+          <p>Ailes de poulet sauce barbecue.</p>
+          <span>$10 US</span>
+          <!--<button onclick="addToCart('Chicken wing BBQ', 10)">Ajouter</button>-->
+        </div>
+        <div class="item">
+          <img src="Chicken_wing_frit.png" alt="Chicken wing Frit" />
+          <h3>Chicken wing Frit</h3>
+          <p>Ailes de poulet frites croustillantes.</p>
+          <span>$10 US</span>
+          <!--<button onclick="addToCart('Chicken wing Frit', 10)">Ajouter</button>-->
+        </div>
+        <div class="item">
+          <img src="Chicken_wing_saute.png" alt="Chicken wing Sauté" />
+          <h3>Chicken wing Sauté</h3>
+          <p>Ailes de poulet sautées à la poêle.</p>
+          <span>$10 US</span>
+          <!--<button onclick="addToCart('Chicken wing Sauté', 10)">Ajouter</button>-->
+        </div>
+      </div>
+
+  </div>
+
+  <!-- Viandes -->
+  <div class="media-card" data-category="Viandes">
+    <h2>Viandes</h2>
+    <div class="menu2-grid">
+      <div class="item">
+        <img src="Cabri_en_sauce.png" alt="Cabri en sauce" />
+        <h3>Cabri en sauce</h3>
+        <p>Cabri mijoté dans une sauce épicée.</p>
+        <span>$16 US</span>
+        <!--<button onclick="addToCart('Cabri en sauce', 16)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Tassot_Cabri.png" alt="Tassot Cabri" />
+        <h3>Tassot Cabri</h3>
+        <p>Viande de cabri séchée et frite.</p>
+        <span>$16 US</span>
+        <!--<button onclick="addToCart('Tassot Cabri', 16)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Cabri_Grille.png" alt="Cabri Grillé" />
+        <h3>Cabri Grillé</h3>
+        <p>Cabri grillé avec épices.</p>
+        <span>$16 US</span>
+        <!--<button onclick="addToCart('Cabri Grillé', 16)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Tassot_Boeuf.png" alt="Tassot de Bœuf" />
+        <h3>Tassot de Bœuf</h3>
+        <p>Viande de bœuf séchée et frite.</p>
+        <span>$12 US</span>
+        <!--<button onclick="addToCart('Tassot de Bœuf', 12)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Boeuf_en_sauce.png" alt="Bœuf en sauce" />
+        <h3>Bœuf en sauce</h3>
+        <p>Viande de bœuf mijotée dans une sauce.</p>
+        <span>$12 US</span>
+        <!--<button onclick="addToCart('Bœuf en sauce', 12)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Filet_Boeuf_Poivre.png" alt="Filet de Bœuf au Poivre" />
+        <h3>Filet de Bœuf au Poivre</h3>
+        <p>Filet de bœuf sauce au poivre.</p>
+        <span>$14 US</span>
+        <!--<button onclick="addToCart('Filet de Bœuf au Poivre', 14)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Filet_Boeuf_Champignons.png" alt="Filet de Bœuf aux Champignons" />
+        <h3>Filet de Bœuf aux Champignons</h3>
+        <p>Filet de bœuf sauce aux champignons.</p>
+        <span>$16 US</span>
+        <!--<button onclick="addToCart('Filet de Bœuf aux Champignons', 16)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Filet_Boeuf_Echalotes.png" alt="Filet de Bœuf aux Échalotes" />
+        <h3>Filet de Bœuf aux Échalotes</h3>
+        <p>Filet de bœuf sauce aux échalotes.</p>
+        <span>$14 US</span>
+        <!--<button onclick="addToCart('Filet de Bœuf aux Échalotes', 14)">Ajouter</button>-->
+      </div>
+      <div class="item">
+        <img src="Griot.png" alt="Griot" />
+        <h3>Griot</h3>
+        <p>Porc frit à la créole.</p>
+        <span>$12 US</span>
+        <!--<button onclick="addToCart('Griot', 12)">Ajouter</button>-->
+      </div>
+    </div>
+  </div>
+
+  <!-- Boissons -->
+  <div class="media-card" data-category="Boissons">
+    <h2>Boissons</h2>
+    <div class="menu2-grid">
+      <!-- Cocktails -->
+      <div class="item">
+        <img src="Cocktails.jpg" alt="Cocktails" />
+        <h3>Cocktails</h3>
+        <p>Rhum Sour, Mojito, Platinum Cocktail, Poña Colada, Couba Libre, Amaretto Sour, Tequila.</p>
+        <span>Prix selon choix</span>
+        <!--<button onclick="addToCart('Cocktails')">Ajouter</button>-->
+      </div>
+      <!-- Bière -->
+      <div class="item">
+        <img src="Bière.jpg" alt="Bière" />
+        <h3>Bière</h3>
+        <p>Prestige, Heineken, Guiness, Kinam, Benedicta, Miks, Sila.</p>
+        <span>Prix selon choix</span>
+        <!--<button onclick="addToCart('Bière')">Ajouter</button>-->
+      </div>
+
+      <!-- Vin -->
+      <div class="item">
+        <div class="item-image">
+          <img src="Vins.jpg" alt="Vins" />
+        </div>
+        <h3>Vin</h3>
+        <p>
+          Vin Rouge Qunta, Vin Rouge Country, Vin Rouge Cavic, Champion, 
+          Vino Tinto, Vin Blanc, Vin Rosé.
+        </p>
+        <span>Prix selon bouteille</span>
+        <!--<button onclick="addToCart('Vin')">Ajouter</button>-->
+      </div>
+
+      <!-- Champagne -->
+      <div class="item">
+        <img src="Champagne.jpg" alt="Champagne" />
+        <h3>Champagne</h3>
+        <p>Vie de Rêve, Cereser, La Sichera, JP Chenet.</p>
+        <span>Prix selon bouteille</span>
+        <!--<button onclick="addToCart('Champagne')">Ajouter</button>-->
+      </div>
+      <!-- Boissons Alcoolisées -->
+      <div class="item">
+        <img src="Whisky.jpg" alt="Boissons Alcoolisées" />
+        <h3>Boissons Alcoolisées</h3>
+        <p>
+          Rhum et Whisky: Barbancourt 5*, Barcourt 3*, Barbancourt (Plat), White Label, Black Label, Something, Nelson, Officiers, Chevalier, Amaretto, Tequila, Absolute Vodka, Havana Club, Alize.
+        </p>
+        <span>Prix selon choix</span>
+        <!--<button onclick="addToCart('Boissons Alcoolisées')">Ajouter</button>-->
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+  <!-- PANIER 
+  <div class="cart"> -->
+
+    <!-- PANIER BOX 
+    <aside id="cartBox" class="cart-box hidden">
+      <h2 class="cart-title">
+        <i class="fas fa-shopping-cart"></i> Mon Panier 
+        <span id="cartCount2" class="cart-count2">Articles 0</span>
+      </h2>
+      <div id="notif"></div>
+      <div id="cartItems" class="cart-items empty-msg"><i class="fas fa-shopping-cart"></i> Votre panier est vide</div>
+      <div class="total">Total: $<span id="total">0</span></div> -->
+
+      <!-- Checkout form 
+      <div id="checkoutForm" class="checkout-form hidden">
+        <h3 class="form-title"><i class="fas fa-receipt"></i> Informations de commande</h3>
+        <form id="orderForm" class="form">
+          <div class="form-group">
+            <label for="room"><i class="fas fa-door-closed"></i> Numéro de chambre :</label>
+            <input type="text" id="room" placeholder="Ex: 203" required>
+          </div>
+
+          <div class="form-group">
+            <label for="notes"><i class="fas fa-comment-dots"></i> Remarques :</label>
+            <textarea id="notes" rows="3" placeholder="Ex: sans sel, livrer rapidement..."></textarea>
+          </div>
+        </form>
+      </div> -->
+      
+      <!-- BTN VALIDATION PANIER 
+      <button onclick="openPaymentModal()" class="btn-validate"><i class="fas fa-credit-card"></i>
+         Procéder au Paiement
+      </button>
+      -->
+      <!-- MODAL PAYMENT 
+      <div id="paymentModal" class="modal hidden">
+        <div class="modal-content">
+          <span class="close" onclick="closePaymentModal()">&times;</span>
+          <h3><i class="fas fa-credit-card"></i> Choisissez votre mode de paiement</h3>
+
+          <form id="paymentFormRestaurant" class="form">
+            <div class="payment-methods">
+              <label class="payment-option">
+                <input type="radio" name="payment" value="visa" required>
+                <div class="option-content">
+                  <img src="https://img.icons8.com/color/48/visa.png"><span>Visa</span>
+                </div>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="mastercard">
+                <div class="option-content">
+                  <img src="https://img.icons8.com/color/48/mastercard.png"><span>MasterCard</span>
+                </div>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="paypal">
+                <div class="option-content">
+                  <img src="https://img.icons8.com/color/48/paypal.png"><span>PayPal</span>
+                </div>
+              </label>
+              <label class="payment-option">
+                  <input type="radio" name="payment" value="moncash">
+                  <div class="option-content">
+                    <img src="moncash.png" alt="MonCash">
+                    <span>MonCash</span>
+                  </div>
+              </label>
+              <label class="payment-option">
+                  <input type="radio" name="payment" value="natcash">
+                  <div class="option-content">
+                    <img src="natcash.png" alt="NatCash">
+                    <span>NatCash</span>
+                  </div>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="cash">
+                <div class="option-content">
+                  <img src="https://img.icons8.com/color/48/cash.png"><span>Payer en espèces</span>
+                </div>
+              </label>
+            </div>
+
+            <div id="paymentDetailsRestaurant"></div>
+
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-lock"></i> Confirmer le Paiement
+            </button>
+          </form>
+        </div>
+      </div>
+    </aside>
+  </div>
+  -->
+
+</div>
+
+  <!-- 🔊 SON NOTIF 
+  <audio id="notifSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
+-->
+  <!-- Pied de page -->
+ <footer>
+  <div class="footer-container">
+    
+    <div class="footer-section">
+      <h3>Platinum Hôtel</h3>
+      <p>Habitation Ponceley<br>
+      Trou du Nord, Haïti</p>
+      <p>Email : <a href="mailto:contact@platinumhotel.ht">contact@platinumhotel.ht</a></p>
+      <p>Téléphone : <a href="tel:+50933534747">+509 3353 4747</a></p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Chambres & Tarifs.html">Chambres</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Galerie.html">Galerie</a></li>
+        <li><a href="Reservation.html">Réservation</a></li>
+        <li><a href="Restaurant.html">Restaurant</a></li>
+        <li><a href="À propos.html">À propos</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Suivez-nous</h3>
+      <ul class="social-links">
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+   <p> &copy; 2025 Platinum Hôtel — Tous droits réservés. | Design by <strong>Black Byte</strong></p>
+    <!-- Seksyon logo peman -->
+    <div class="footer-payment-logos" >
+      <img src="PCI_Security.png" alt="PCI Security Standards Council" style="background-color: white; padding-left: 4px; padding-right: 4px;">
+      <img src="card.png" alt="Mastercard" style="background-color: white;">
+      <img src="visa.png" alt="Visa" style="background-color: white; padding-left: 2px; padding-right: 4px;">
+      <img src="natcash.png" alt="NatCash">
+      <img src="moncash.png" alt="MonCash">
+    </div>
+
+  </div>
+</footer>
+
+  <script src="script.js"></script> 
+
+</body>
+</html>

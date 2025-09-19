@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="YOUR_SECURE_CSRF_TOKEN_FROM_SERVER" />
+  <title>Réservation</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- pou mete icon aparti de internet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+
+<body>
+
+  <header>
+  <div class="logo-ico">
+    <img class="img_log" src="favicon.png" alt="Platinum Hôtel">
+    <div class="logo">Platinum Hôtel</div>
+  </div>
+    <nav id="nav-links">
+      <ul class="menu-s">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Chambres & Tarifs.html">Chambres</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Galerie.html">Galerie</a></li>
+        <li><a href="Reservation.html" class="active">Réservation</a></li>
+        <li><a href="Restaurant.html">Restaurant</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="À propos.html">À propos</a></li>
+      </ul>
+    </nav>
+      <div class="header-actions">
+       
+        <!-- la pou mete res paramet ki nan menu an -->
+
+        <div id="user-section">
+    <!--   <a href="se-connecter.html" class="btn-se-connecter">Se connecter</a> -->
+        </div> 
+        <button id="menu-toggle">&#9776;</button> 
+      </div>
+  </header>
+  
+<div class="container_resv">
+    <!-- Stepper -->
+    <div class="steps-container">
+      <div class="step active" id="step1">1. Réservation</div>
+      <div class="step" id="step2">2. Paiement</div>
+      <div class="step" id="step3">3. Confirmation</div>
+    </div>  
+  
+    <section id="reservation-section">
+      <h2><i class="fas fa-bed"></i> Étape 1 : Réservez votre séjour ou vos services</h2>
+      <form id="reservationForm">
+        
+        <label for="nom">Nom complet:</label>
+        <input type="text" id="nom" name="nom" placeholder="Votre nom complet" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required />
+
+        <label for="type_reservation">Type de réservation:</label>
+        <select id="type_reservation" name="type_reservation" aria-label="Sélectionnez le type de réservation"  required>
+          <option value="" disabled selected hidden>-- Sélectionnez --</option>
+          <option value="chambre">Chambre (hébergement)</option>
+          <option value="evenement">Événement (mariage, réunion, etc.)</option>
+          <option value="service">Services</option>
+          <option value="autre">Autre service</option>
+        </select>
+
+        <!-- Si l'utilisateur choisit chambre, il pourra choisir le type -->
+        <div id="chambreOptions" style="display: none;">
+          <h3>Choisissez vos chambres</h3>
+          <div id="chambresList"></div>
+          <button type="button" id="addChambreBtn">➕ Ajouter une chambre</button>
+        </div>
+
+        <!-- DIV pou évènement yo -->
+        <div id="eventOptions" style="display:none;">
+          <h3>Choisissez vos événements</h3>
+          <div id="eventsList"></div> <!-- lis evènman yo ap vini la -->
+          <button type="button" id="addEventBtn">➕ Ajouter un événement</button>
+        </div>
+
+        <!-- Services Options -->
+        <div id="serviceOptions" style="display:none;">
+          <button type="button" id="addServiceBtn">➕ Ajouter Service</button>
+          <div id="servicesList"></div>
+        </div>
+
+        <!-- DIV pou Autre Service -->
+        <div id="autreServiceDiv" style="display:none; position: relative; width: 100%;">
+          <label for="autreService">Précisez votre service :</label>
+          <input type="text" id="autreService" name="autreService" placeholder="Décrivez le service souhaité" />
+          <button type="button" id="removeAutreServiceBtn">❌</button>
+        </div>
+
+        <label for="arrivee">Date d'arrivée:</label>
+        <input type="date" id="arrivee" name="arrivee" required />
+
+        <label for="depart">Date de départ:</label>
+        <input type="date" id="depart" name="depart" required />
+
+        <label for="details">Message ou détails supplémentaires:</label>
+        <textarea id="details" name="details" rows="5" placeholder="Indiquez vos besoins spécifiques, le nombre de personnes, ou toute information utile..."></textarea>
+
+          <!-- RÉSUMÉ & MONTANT -->
+        <div class="summary">
+
+          <!-- Nuits -->
+          <div id="summaryNuits" class="summary-section summary-chambre" style="display:none;">
+            <div class="summary-header">
+              <i class="fas fa-bed"></i> Nuits
+            </div>
+            <div id="summaryNuitDetails" class="summary-details"></div> <!-- nouvo -->
+
+            <div class="summary-row">
+              <span>Nombre de nuits</span><strong id="sumNuits">0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Total Nuit</span><strong id="sumNuitTotal">0.00</strong>
+              <span class="sumCurrency">USD</span>
+            </div>
+          </div>
+
+          <!-- Événements -->
+          <div id="summaryEvents" class="summary-section summary-event" style="display:none;">
+            <div class="summary-header">
+              <i class="fas fa-calendar-alt"></i> Événements
+            </div>
+            <div id="summaryEventDetails" class="summary-details"></div> <!-- nouvo -->
+
+            <div class="summary-row">
+              <span>Nombre d'événements</span><strong id="sumEvents">0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Total Événements</span><strong id="sumEventsTotal">0.00</strong>
+              <span class="sumCurrency">USD</span>
+            </div>
+          </div>
+
+          <!-- Services spéciaux -->
+          <div id="summaryServices" class="summary-section summary-service" style="display:none;">
+            <div class="summary-header">
+              <i class="fas fa-concierge-bell"></i> Services spéciaux
+            </div>
+            <div id="summaryServiceDetails" class="summary-details"></div> <!-- nouvo -->
+
+            <div class="summary-row">
+              <span>Nombre de services</span><strong id="sumServices">0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Total Services</span><strong id="sumServicesTotal">0.00</strong>
+              <span class="sumCurrency">USD</span>
+            </div>
+          </div>
+
+          <!-- Autre service -->
+          <div id="summaryAutre" class="summary-section summary-autre" style="display:none;">
+            <div class="summary-header">
+              <i class="fas fa-concierge-bell"></i> Autre service
+            </div>
+            <div id="summaryAutreDetails" class="summary-details"></div> <!-- nouvo -->
+
+            <div class="summary-row">
+              <span>Nombre</span><strong id="sumAutre">0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Total Autre</span><strong id="sumAutreTotal">0.00</strong>
+              <span class="sumCurrency">USD</span>
+            </div>
+          </div>
+
+          <!-- Montant global -->
+          <div class="summary-row total-grand">
+            <strong>Total général</strong>
+            <strong id="sumGrandTotal">0.00</strong> <span id="sumCurrency">USD</span>
+          </div>
+        </div>
+
+        <input type="hidden" name="amount" id="amount" value="0" />
+        <input type="hidden" name="currency" id="currency" value="USD" />
+      
+
+          <!-- Règle de réservation -->
+          <div class="reservation-policy">
+            <p><strong>Important :</strong> Après confirmation, si vous ne vous présentez pas dans les 24 heures, aucun remboursement ne sera effectué.</p>
+            <label>
+              <input type="checkbox" id="acceptPolicy" required />
+              J'ai lu et j'accepte la politique de réservation
+            </label>
+          </div>
+
+          <!-- Bouton Rezervation -->
+          <button type="submit" class="btn-validate">
+            <i class="fas fa-bed"></i> Réserver Maintenant
+          </button>
+      </form>
+    </section>
+
+
+          <!-- ==============================
+            SECTION PAIEMENT
+        ============================== -->
+
+    <!-- Étape 2 : Paiement -->
+            <section id="payment-section" style="display:none;">
+              <h2><i class="fas fa-credit-card"></i> Étape 2 : Choisissez votre mode de paiement</h2>
+
+              <form id="paymentForm" class="form">
+                <div class="payment-methods">
+                  <label class="payment-option">
+                    <input type="radio" name="payment" value="visa" required>
+                    <div class="option-content">
+                      <img src="https://img.icons8.com/color/48/visa.png"><span>Visa</span>
+                    </div>
+                  </label>
+                  <label class="payment-option">
+                    <input type="radio" name="payment" value="mastercard">
+                    <div class="option-content">
+                      <img src="https://img.icons8.com/color/48/mastercard.png"><span>MasterCard</span>
+                    </div>
+                  </label>
+                  <!--<label class="payment-option">
+                    <input type="radio" name="payment" value="paypal">
+                    <div class="option-content">
+                      <img src="https://img.icons8.com/color/48/paypal.png"><span>PayPal</span>
+                    </div>
+                  </label>-->
+                  <label class="payment-option">
+                      <input type="radio" name="payment" value="moncash">
+                      <div class="option-content">
+                        <img src="moncash.png" alt="MonCash">
+                        <span>MonCash</span>
+                      </div>
+                  </label>
+                  <label class="payment-option">
+                      <input type="radio" name="payment" value="natcash">
+                      <div class="option-content">
+                        <img src="natcash.png" alt="NatCash">
+                        <span>NatCash</span>
+                      </div>
+                  </label>
+                </div>
+
+                <div id="paymentDetails"></div>
+
+                <button type="submit" class="btn-submit">
+                  <i class="fas fa-lock"></i> Confirmer le Paiement
+                </button>
+              </form>
+            </section>
+
+      <section id="success-section">
+        <i class="fas fa-check-circle"></i>
+        <h2>Réservation réussie !</h2>
+        <p>Merci <span id="user-name"></span>, <span id="confirmation-message"></span></p>
+        <p>Un email de confirmation a été envoyé à <span id="user-email"></span>.</p>
+      </section>
+
+</div>
+
+
+  <a href="https://wa.me/50933534747" class="whatsapp-float" target="_blank">
+    <img  class="ico-what" src="whatsapp (1).png" alt="WhatsApp" />
+  </a>    
+
+  <!-- Pied de page -->
+ <footer>
+  <div class="footer-container">
+    
+    <div class="footer-section">
+      <h3>Platinum Hôtel</h3>
+      <p>Habitation Ponceley<br>
+      Trou du Nord, Haïti</p>
+      <p>Email : <a href="mailto:contact@platinumhotel.ht">contact@platinumhotel.ht</a></p>
+      <p>Téléphone : <a href="tel:+50933534747">+509 3353-4747</a></p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Chambres & Tarifs.html">Chambres</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Galerie.html">Galerie</a></li>
+        <li><a href="Reservation.html">Réservation</a></li>
+        <li><a href="Restaurant.html">Restaurant</a></li>
+        <li><a href="À propos.html">À propos</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Suivez-nous</h3>
+      <ul class="social-links">
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+   <p> &copy; 2025 Platinum Hôtel — Tous droits réservés. | Design by <strong>Black Byte</strong></p>
+    <!-- Seksyon logo peman -->
+    <div class="footer-payment-logos" >
+      <img src="PCI_Security.png" alt="PCI Security Standards Council" style="background-color: white; padding-left: 4px; padding-right: 4px;">
+      <img src="card.png" alt="Mastercard" style="background-color: white;">
+      <img src="visa.png" alt="Visa" style="background-color: white; padding-left: 2px; padding-right: 4px;">
+      <img src="natcash.png" alt="NatCash">
+      <img src="moncash.png" alt="MonCash">
+    </div>
+
+  </div>
+</footer>
+  
+    <script src="Reserv.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const reservationForm = document.getElementById("reservationForm");
+  const paymentForm = document.getElementById("paymentForm");
+  const paymentSection = document.getElementById("payment-section");
+  const successSection = document.getElementById("success-section");
+
+  // Etap aktyèl (0 = rezervasyon, 1 = peman, 2 = konfimasyon)
+  let currentStep = 0;
+
+  const steps = [
+    document.getElementById("reservation-section"),
+    paymentSection,
+    successSection
+  ];
+
+  // Fonksyon pou montre etap aktyèl la, kache lòt yo
+  function showStep(stepIndex) {
+    steps.forEach((step, i) => {
+      step.style.display = (i === stepIndex) ? "block" : "none";
+      const stepIndicator = document.getElementById(`step${i + 1}`);
+      if (!stepIndicator) return;
+      stepIndicator.classList.toggle("active", i === stepIndex);
+      stepIndicator.classList.toggle("done", i < stepIndex);
+    });
+    currentStep = stepIndex;
+  }
+
+  // Kontwòl validasyon Step 1 (Réservation)
+  function validateReservationForm() {
+    const fullname = document.getElementById("nom").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const typeRes = document.getElementById("type_reservation").value;
+    if (!fullname || !email || !typeRes) {
+      alert("Veuillez remplir tous les champs obligatoires !");
+      return false;
+    }
+    return true;
+  }
+
+  // Fonksyon pou renseigner le message de confirmation selon type réservation
+  function fillConfirmation() {
+    const userName = document.getElementById("nom").value;
+    const userEmail = document.getElementById("email").value;
+    const typeRes = document.getElementById("type_reservation").value;
+
+    const userNameSpan = document.getElementById("user-name");
+    const userEmailSpan = document.getElementById("user-email");
+    const confirmationMessageSpan = document.getElementById("confirmation-message");
+
+    userNameSpan.textContent = userName;
+    userEmailSpan.textContent = userEmail;
+
+    let message = "";
+
+    switch (typeRes) {
+      case "chambre":
+        message = "votre réservation de chambre a été confirmée avec succès.";
+        break;
+      case "evenement":
+        message = "votre réservation d'événement a été confirmée avec succès.";
+        break;
+      case "service":
+        message = "votre réservation de service a été confirmée avec succès.";
+        break;
+      case "autre":
+        const autreText = document.getElementById("autreService").value.trim();
+        message = autreText ? `votre réservation pour le service suivant : \"${autreText}\" a été confirmée.` : "votre réservation pour un autre service a été confirmée avec succès.";
+        break;
+      default:
+        message = "votre réservation a été confirmée avec succès.";
+    }
+
+    confirmationMessageSpan.textContent = message;
+  }
+
+  // Evite plizyè submit pou fòm rezèvasyon an
+  reservationForm.addEventListener("submit", e => {
+    e.preventDefault();
+    if (!validateReservationForm()) return;
+    // Avanse nan Step 2
+    showStep(1);
+  });
+
+  // Evènman sou submit fòm peman
+  paymentForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const method = paymentForm.payment.value;
+    if (!method) {
+      alert("Veuillez choisir un mode de paiement !");
+      return;
+    }
+
+    // Nan yon ka reyèl, ou ta entegre api peman isit la (Stripe, MonCash, elatriye)
+    alert(`✅ Paiement confirmé avec : ${method.toUpperCase()}`);
+
+    // Montre Step 3 (Konfimasyon)
+    showStep(2);
+
+    // Ranpli enfòmasyon konfimasyon
+    fillConfirmation();
+  });
+
+  // Inisyalize pou montre sèlman Step 1 sou chajman paj la
+  showStep(0);
+});
+
+    </script>
+
+</body>
+</html>
