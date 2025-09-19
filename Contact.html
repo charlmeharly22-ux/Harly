@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- pou mete icon aparti de internet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+  <div class="logo-ico">
+    <img class="img_log" src="favicon.png" alt="Platinum Hôtel">
+    <div class="logo">Platinum Hôtel</div>
+  </div>
+    <nav id="nav-links">
+      <ul class="menu-s">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Chambres & Tarifs.html">Chambres</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Galerie.html">Galerie</a></li>
+        <li><a href="Reservation.html">Réservation</a></li>
+        <li><a href="Restaurant.html">Restaurant</a></li>
+        <li><a href="Contact.html" class="active">Contact</a></li>
+        <li><a href="À propos.html">À propos</a></li>
+      </ul>
+    </nav>
+      <div class="header-actions">
+       
+        <!-- la pou mete res paramet ki nan menu an --> 
+
+        <div id="user-section">
+    <!--   <a href="se-connecter.html" class="btn-se-connecter">Se connecter</a> -->
+        </div>
+        <button id="menu-toggle">&#9776;</button>
+      </div>
+  </header>
+  
+  
+
+
+<!-- SECTION CONTACT COMPLET -->
+<main>
+  <section id="contact">
+    <h1>Contactez-nous</h1>
+    <p>
+      Une question ? Besoin d’un renseignement ou d’un devis personnalisé ? 
+      Écrivez-nous ou contactez-nous directement, nous vous répondrons dans les meilleurs délais.
+    </p>
+
+    <div class="contact-container">
+      <div class="contact-infos">
+        <h2>Nos coordonnées</h2>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Habitation Ponceley, Trou du Nord, Haïti</li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:contact@platinumhotel.ht" class="Netoyer_Lien">contact@platinumhotel.ht</a></li>
+          <li><i class="fas fa-phone"></i> <a href="tel:+50933534747" class="Netoyer_Lien">+509 3353 4747</a>  <!--/ <a href="tel:+50948901234" class="Netoyer_Lien">+509 4890 1234</a> --> </li>
+        </ul>
+
+        <div class="contact-social">  
+          <h2 style="text-align:center;">Suivez-nous sur les réseaux sociaux</h2>
+          <a href="https://www.facebook.com/NonPageOu" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="fab fa-facebook fa-2x"></i>
+          </a>
+          <a href="https://www.instagram.com/NonUserOu" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+          <a href="https://www.tiktok.com/@NonUserOu"  target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <i class="fab fa-tiktok fa-2x"></i>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form" action="#" method="post" autocomplete="off">
+        <h2>Envoyer un message</h2>
+        <label>
+          Votre nom
+          <input type="text" name="nom" required placeholder="Votre nom complet">
+        </label>
+        <label>
+          Adresse email
+          <input type="email" name="email" required placeholder="exemple@gmail.com">
+        </label>
+        <label>
+          Message
+          <textarea name="message" required placeholder="Votre message..."></textarea>
+        </label>
+        <button type="submit" class="btn">Envoyer</button>
+        <p class="rgpd">Vos informations restent confidentielles et ne seront jamais partagées.</p>
+        <p id="success-message" class="success-message" style="display:none;">Merci ! Votre message a bien été envoyé.</p>
+      </form>
+    </div>
+
+  
+  <!-- <div class="contact-team">
+  <h2>Notre équipe dirigeante</h2>
+    <div class="team-members">
+
+      <div class="member">
+        <img src="images/directeur.jpg" alt="Directeur Général" class="profil-img">
+        <h3>Mr André Abel</h3>
+        <a href="tel:+50941143579">+509 4114-3579</a>
+        <a href="mailto:andreabel39@gmail.com">andreabel39@gmail.com</a>
+        <p>Directeur Général</p>
+      </div>
+
+      <div class="member">
+        <img src="images/directrice.jpg" alt="Directrice Commerciale" class="profil-img">
+        <h3>Mme Jhenise Mocombe</h3>
+        <a href="tel:+50943581324">+509 4358-1324</a>
+        <a href="mailto:jmocombe007@gmail.com">jmocombe007@gmail.com</a>
+        <p>Directrice Commerciale</p>
+      </div>
+
+      <div class="member">
+        <img src="images/directrice.jpg" alt="Responsable Réservations" class="profil-img">
+        <h3>Mme Jhenise Mocombe</h3>
+        <a href="tel:+50943581324">+509 4358-1324</a>
+        <a href="mailto:jmocombe007@gmail.com">jmocombe007@gmail.com</a>
+        <p>Responsable Réservations / Réception / Marketing</p>
+      </div>
+
+      <div class="member">
+        <img src="images/directrice.jpg" alt="Chef Cuisine" class="profil-img">
+        <h3>Mme Jhenise Mocombe</h3>
+        <a href="tel:+50943581324">+509 4358-1324</a>
+        <a href="mailto:jmocombe007@gmail.com">jmocombe007@gmail.com</a>
+        <p>Chef Cuisine</p>
+      </div>
+    </div>
+  </div> --> 
+
+    <div class="hotel-map">
+      <h2>Nous localiser</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3793.4197842494244!2d-72.00603218576119!3d19.642303436850733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb0b33d9302df05%3A0xdee69d48d3968fc1!2sTrou-du-Nord!5e0!3m2!1sfr!2sht!4v1688842916093"
+        width="100%"
+        height="300"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+
+      
+      <section class="faq-section">
+        <h2>Questions fréquentes</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">❓ Quels sont vos horaires d’ouverture ?</button>
+          <div class="faq-answer">
+            <p>Nous sommes ouverts 7j/7, 24h/24.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">💳 Acceptez-vous les paiements par carte ?</button>
+          <div class="faq-answer">
+            <p>Oui, nous acceptons Visa, Mastercard, MonCash et NatCash.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">🚗 Disposez-vous d’un parking sécurisé ?</button>
+          <div class="faq-answer">
+            <p>Oui, notre parking est surveillé 24h/24.</p>
+          </div>
+        </div>
+      </section>
+
+ 
+
+    <div class="contact-hours">
+      <h2>Horaires d’ouverture</h2>
+      <ul>
+        <li>Lundi - Vendredi : 08h00 - 23h00</li>
+        <li>Samedi : 08h00 - 23h00</li>
+        <li>Dimanche : 08h00 - 23h00</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+
+  <a href="https://wa.me/50933534747" class="whatsapp-float" target="_blank">
+    <img  class="ico-what" src="whatsapp (1).png" alt="WhatsApp" />
+  </a>
+  
+  <!-- Pied de page -->
+ <footer>
+  <div class="footer-container">
+    
+    <div class="footer-section">
+      <h3>Platinum Hôtel</h3>
+      <p>Habitation Ponceley<br>
+      Trou du Nord, Haïti</p>
+      <p>Email : <a href="mailto:contact@platinumhotel.ht">contact@platinumhotel.ht</a></p>
+      <p>Téléphone : <a href="tel:+50933534747">+509 3353-4747</a></p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Chambres & Tarifs.html">Chambres</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Galerie.html">Galerie</a></li>
+        <li><a href="Reservation.html">Réservation</a></li>
+        <li><a href="Restaurant.html">Restaurant</a></li>
+        <li><a href="À propos.html">À propos</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Suivez-nous</h3>
+      <ul class="social-links">
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+   <p> &copy; 2025 Platinum Hôtel — Tous droits réservés. | Design by <strong>Black Byte</strong></p>
+    <!-- Seksyon logo peman -->
+    <div class="footer-payment-logos" >
+      <img src="PCI_Security.png" alt="PCI Security Standards Council" style="background-color: white; padding-left: 4px; padding-right: 4px;">
+      <img src="card.png" alt="Mastercard" style="background-color: white;">
+      <img src="visa.png" alt="Visa" style="background-color: white; padding-left: 2px; padding-right: 4px;">
+      <img src="natcash.png" alt="NatCash">
+      <img src="moncash.png" alt="MonCash">
+    </div>
+
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
